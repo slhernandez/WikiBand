@@ -10,7 +10,11 @@
 
 @interface ArtistCell : UICollectionViewCell
 
-@property (nonatomic) UIImageView *imageView;
-@property (nonatomic) NSString *photo;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) NSString *photo;
+@property (nonatomic, strong) UILabel *label;
+
+- (void)setArtistName:(NSString *)name;
+
 
 @end

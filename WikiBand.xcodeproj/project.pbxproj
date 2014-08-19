@@ -23,6 +23,7 @@
 		E9B8FC0719A00E9D00607236 /* ArtistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B8FC0619A00E9D00607236 /* ArtistCell.m */; };
 		E9D6236919A1295B002A05A4 /* ArtistDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D6236819A1295B002A05A4 /* ArtistDetailsViewController.m */; };
 		E9D6236B19A129C5002A05A4 /* ArtistDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D6236A19A129C5002A05A4 /* ArtistDetailsViewController.xib */; };
+		E9D6236E19A163F7002A05A4 /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D6236D19A163F7002A05A4 /* Artist.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		E9D6236719A1295B002A05A4 /* ArtistDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArtistDetailsViewController.h; path = ../ArtistDetailsViewController.h; sourceTree = "<group>"; };
 		E9D6236819A1295B002A05A4 /* ArtistDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArtistDetailsViewController.m; path = ../ArtistDetailsViewController.m; sourceTree = "<group>"; };
 		E9D6236A19A129C5002A05A4 /* ArtistDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistDetailsViewController.xib; sourceTree = "<group>"; };
+		E9D6236C19A163F7002A05A4 /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
+		E9D6236D19A163F7002A05A4 /* Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				E9B8FBDA19A0033D00607236 /* Supporting Files */,
 				E9B8FC0519A00E9D00607236 /* ArtistCell.h */,
 				E9B8FC0619A00E9D00607236 /* ArtistCell.m */,
+				E9D6236C19A163F7002A05A4 /* Artist.h */,
+				E9D6236D19A163F7002A05A4 /* Artist.m */,
 			);
 			path = WikiBand;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				E9B8FC0419A005B000607236 /* GridViewController.m in Sources */,
 				E9D6236919A1295B002A05A4 /* ArtistDetailsViewController.m in Sources */,
 				E9B8FC0719A00E9D00607236 /* ArtistCell.m in Sources */,
+				E9D6236E19A163F7002A05A4 /* Artist.m in Sources */,
 				E9B8FBE019A0033D00607236 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
