@@ -10,4 +10,14 @@
 
 @implementation ArtistDetailsViewController
 
+- (IBAction)close:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)viewDidLoad {
+    
+    
+}
+
 @end

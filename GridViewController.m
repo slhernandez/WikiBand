@@ -9,8 +9,10 @@
 #import "GridViewController.h"
 #import "ArtistCell.h"
 #import "ArtistDetailsViewController.h"
+#import "PresentDetailTransition.h"
+#import "DismissDetailTransition.h"
 
-@interface GridViewController ()
+@interface GridViewController () <UIViewControllerTransitioningDelegate>
 @property (nonatomic) NSArray *photos;
 
 @end
@@ -67,11 +69,27 @@
 }
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     // Get a pointer to an object that represents the app bundle
     NSBundle *appBundle = [NSBundle mainBundle];
     // Look in the appBundle for the file ArtistDetailsViewController.xib
     ArtistDetailsViewController *advc = [[ArtistDetailsViewController alloc] initWithNibName:@"ArtistDetailsViewController" bundle:appBundle];
-    [self.navigationController pushViewController:advc animated:YES];
+    advc.modalPresentationStyle = UIModalPresentationCustom;
+    advc.transitioningDelegate = self;
+    [self presentViewController:advc animated:YES completion: nil];
+    //[self.navigationController pushViewController:advc animated:YES];
+    
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    
+    return [[PresentDetailTransition alloc] init];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    
+    return [[DismissDetailTransition alloc] init];
+    
 }
 
 @end
