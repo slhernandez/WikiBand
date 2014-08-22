@@ -11,9 +11,12 @@
 #import "ArtistDetailsViewController.h"
 #import "PresentDetailTransition.h"
 #import "DismissDetailTransition.h"
+#import "Artist.h"
 
 @interface GridViewController () <UIViewControllerTransitioningDelegate>
+
 @property (nonatomic) NSArray *photos;
+@property (nonatomic, strong) NSArray *artists;
 
 @end
 
@@ -40,6 +43,10 @@
                    @"WillieNelson", nil];
     
     NSLog(@"Photos arrary: %@", self.photos);
+    
+    // Create a sample object with artist items
+    _artists = [Artist artistItems];
+    NSLog(@"artists %@", _artists);
     
     return (self = [super initWithCollectionViewLayout:layout]);
 }

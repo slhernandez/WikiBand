@@ -16,9 +16,12 @@
 
 + (instancetype)initWithArtistName:(NSString *)name;*/
 
-@property (nonatomic) NSString *artistName;
+@property (nonatomic, copy) NSString *artistName;
 @property (nonatomic) UIImage *artistImage;
-@property (nonatomic) NSString *artistBio;
+@property (nonatomic, copy) NSString *artistBio;
 
++ (NSArray *)artistItems;
+
+- (instancetype)initWithArtist:(NSString *)artistName image:(UIImage *)artistImage bio:(NSString *)artistBio;
 
 @end
