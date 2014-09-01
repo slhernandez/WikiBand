@@ -17,6 +17,7 @@
 
 @property (nonatomic) NSArray *photos;
 @property (nonatomic, strong) NSArray *artists;
+@property (nonatomic) Artist *myArtist;
 
 @end
 
@@ -43,10 +44,8 @@
                    @"WillieNelson", nil];
     
     NSLog(@"Photos arrary: %@", self.photos);
-    
-    // Create a sample object with artist items
     _artists = [Artist artistItems];
-    NSLog(@"artists %@", _artists);
+    NSLog(@"_artists ... %@", _artists);
     
     return (self = [super initWithCollectionViewLayout:layout]);
 }
@@ -61,7 +60,8 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.photos count];
+    //return [self.photos count];
+    return [self.artists count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,7 +69,17 @@
     ArtistCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photo" forIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor lightGrayColor];
-    cell.photo = self.photos[indexPath.row];
+    //cell.photo = self.photos[indexPath.row];
+    
+    Artist *currentArtist = self.artists[indexPath.row];
+    NSLog(@"artistImage ... %@", currentArtist.artistImage);
+    NSLog(@"artistName ... %@", currentArtist.artistName);
+    NSLog(@"artistBio ... %@", currentArtist.artistBio);
+    
+    cell.imageView.image = currentArtist.artistImage;
+    [cell setArtistName:currentArtist.artistName];
+    
+    
     
     return cell;
     
@@ -81,6 +91,10 @@
     NSBundle *appBundle = [NSBundle mainBundle];
     // Look in the appBundle for the file ArtistDetailsViewController.xib
     ArtistDetailsViewController *advc = [[ArtistDetailsViewController alloc] initWithNibName:@"ArtistDetailsViewController" bundle:appBundle];
+    Artist *selectedArtist = self.artists[indexPath.row];
+    
+    advc.artist = selectedArtist;
+    
     advc.modalPresentationStyle = UIModalPresentationCustom;
     advc.transitioningDelegate = self;
     [self presentViewController:advc animated:YES completion: nil];

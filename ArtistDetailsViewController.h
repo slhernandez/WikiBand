@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class Artist;
+
 @interface ArtistDetailsViewController : UIViewController
+
+@property (nonatomic, strong) Artist *artist;
+@property (nonatomic, weak) IBOutlet UIImageView *artistDetailImage;
+@property (nonatomic, weak) IBOutlet UILabel *artistLabel;
+@property (nonatomic, weak) IBOutlet UITextView *artistBio;
 
 @end

@@ -6,22 +6,16 @@
 //  Copyright (c) 2014 Steve Hernandez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
 @interface Artist : NSObject
 
-/*- (instancetype)initWithArtistName:(NSString *)name
-                       artistImage:(UIImage *)image
-                         artistBio:(NSString *)bio;
-
-+ (instancetype)initWithArtistName:(NSString *)name;*/
-
 @property (nonatomic, copy) NSString *artistName;
-@property (nonatomic) UIImage *artistImage;
-@property (nonatomic, copy) NSString *artistBio;
+@property (nonatomic, strong) UIImage *artistImage;
+@property (nonatomic, strong) UIImage *artistDetailImage;
+@property (nonatomic, copy, readonly) NSString *artistBio;
 
 + (NSArray *)artistItems;
 
-- (instancetype)initWithArtist:(NSString *)artistName image:(UIImage *)artistImage bio:(NSString *)artistBio;
+- (instancetype)initWithArtist:(NSString *)artistName image:(UIImage *)artistImage bio:(NSString *)artistBio image:(UIImage *)artistDetailImage;
 
 @end

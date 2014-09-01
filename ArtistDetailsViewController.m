@@ -7,8 +7,19 @@
 //
 
 #import "ArtistDetailsViewController.h"
+#import "Artist.h"
 
 @implementation ArtistDetailsViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    Artist *artist = self.artist;
+    self.artistLabel.text = artist.artistName;
+    self.artistDetailImage.image = artist.artistDetailImage;
+    self.artistBio.text = artist.artistBio;
+}
+
 
 - (IBAction)close:(id)sender {
     
