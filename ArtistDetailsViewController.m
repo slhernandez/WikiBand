@@ -18,6 +18,11 @@
     self.artistLabel.text = artist.artistName;
     self.artistDetailImage.image = artist.artistDetailImage;
     self.artistBio.text = artist.artistBio;
+    self.artistBirthName.text = artist.artistBirthName;
+    self.artistBornDate.text = artist.artistBornDate;
+    self.artistOccupation.text = artist.artistOccupation;
+    
+    
 }
 
 

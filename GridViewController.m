@@ -56,7 +56,8 @@
     self.title = @"WikiBand";
     
     [self.collectionView registerClass:[ArtistCell class] forCellWithReuseIdentifier:@"photo"];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    //self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:1.0];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -79,10 +80,7 @@
     cell.imageView.image = currentArtist.artistImage;
     [cell setArtistName:currentArtist.artistName];
     
-    
-    
     return cell;
-    
 }
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

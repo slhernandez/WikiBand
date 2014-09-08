@@ -16,5 +16,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *artistDetailImage;
 @property (nonatomic, weak) IBOutlet UILabel *artistLabel;
 @property (nonatomic, weak) IBOutlet UITextView *artistBio;
+@property (nonatomic, weak) IBOutlet UILabel *artistBirthName;
+@property (nonatomic, weak) IBOutlet UILabel *artistBornDate;
+@property (nonatomic, weak) IBOutlet UILabel *artistOccupation;
 
 @end

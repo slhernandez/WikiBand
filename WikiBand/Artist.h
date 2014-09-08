@@ -13,9 +13,18 @@
 @property (nonatomic, strong) UIImage *artistImage;
 @property (nonatomic, strong) UIImage *artistDetailImage;
 @property (nonatomic, copy, readonly) NSString *artistBio;
+@property (nonatomic, strong) NSString *artistBirthName;
+@property (nonatomic, strong) NSString *artistBornDate;
+@property (nonatomic, strong) NSString *artistOccupation;
 
 + (NSArray *)artistItems;
 
-- (instancetype)initWithArtist:(NSString *)artistName image:(UIImage *)artistImage bio:(NSString *)artistBio image:(UIImage *)artistDetailImage;
+- (instancetype)initWithArtist:(NSString *)artistName
+                         image:(UIImage *)artistImage
+                           bio:(NSString *)artistBio
+                         image:(UIImage *)artistDetailImage
+                     birthName:(NSString *)artistBirthName
+                          born:(NSString *)artistBornDate
+                    occupation:(NSString *)artistOccupation;
 
 @end
