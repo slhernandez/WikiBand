@@ -26,14 +26,16 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:gridViewController];
     
     UINavigationBar *navigationBar = navigationController.navigationBar;
-    navigationBar.barTintColor = [UIColor colorWithRed:(0.0 / 255.0) green:(0.0 /255.0) blue:(0.0 /255.0) alpha:0.2];
-    //navigationBar.barTintColor = [UIColor whiteColor];
-    navigationBar.barStyle = UIBarStyleBlackOpaque;
+    //navigationBar.barTintColor = [UIColor colorWithRed:(0.0 / 255.0) green:(0.0 /255.0) blue:(0.0 /255.0) alpha:0.2];
+    navigationBar.barTintColor = [UIColor whiteColor];
+    //navigationBar.barStyle = UIBarStyleBlackOpaque;
+    //navigationBar.barStyle = UIBarStyleDefault;
     
     self.window.rootViewController = navigationController;
     
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:1.0];
+    //self.window.backgroundColor = [UIColor colorWithRed:(255.0/255.0) green:(255.0/255.0) blue:(255.0/255.0) alpha:1.0];
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
