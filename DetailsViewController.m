@@ -19,10 +19,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    
     Artist *artist = self.artist;
     
     // Layout the Details Hero Image.
-    UIView *heroImageView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 300)];
+    UIView *heroImageView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 280)];
     self.artistDetailImage = [[UIImageView alloc] initWithImage: artist.artistDetailImage];
     self.artistDetailImage.frame = heroImageView.bounds;
     [heroImageView addSubview:self.artistDetailImage];
@@ -33,7 +34,7 @@
     gradient.frame = self.artistDetailImage.bounds;
     gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0] CGColor],
                         (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4] CGColor],
-                        (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.9] CGColor]];
+                        (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6] CGColor]];
     [self.artistDetailImage.layer insertSublayer:gradient atIndex:0];
    
     //[UIColor colorWithRed:0 green:0 blue:0 alpha:1] /*#000000*/
@@ -68,17 +69,38 @@
     [self.view addSubview:closeButton];
     
     
-    
     // Create a UIView that will house all the label info.
     UIView *labelContainer = [[UIView alloc] initWithFrame: CGRectMake(0,heroImageView.frame.size.height, heroImageView.frame.size.width, 100)];
-    labelContainer.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
+    labelContainer.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#fafafa*/
     [self.view addSubview:labelContainer];
+    
+    // Create a UITextView to enclose the entire bio.
+    
+    // Try to calculate the height of the text that needs to be displayed.
+    UIFont *bioFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    
+    CGSize textSize = [artist.artistBio]
+    
+    self.artistBio = [[UITextView alloc] initWithFrame:CGRectMake(0, labelContainer.frame.size.height, labelContainer.frame.size.width, 200)];
+    
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    
+    
+    self.container = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    self.container.backgroundColor = [UIColor blackColor];
+    self.container.scrollEnabled = YES;
+    self.container.pagingEnabled = YES;
+    self.container.showsVerticalScrollIndicator = YES;
+    self.container.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*2);
+    [self.view addSubview:self.container];
+    
 }
 
 - (void)didReceiveMemoryWarning {

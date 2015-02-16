@@ -15,12 +15,12 @@
 
 @property (nonatomic, strong) Artist *artist;
 @property (nonatomic, strong) UIImageView *artistDetailImage;
-@property (nonatomic, weak) UILabel *artistLabel;
-@property (nonatomic, weak) UITextView *artistBio;
-@property (nonatomic, weak) UILabel *artistBirthName;
-@property (nonatomic, weak) UILabel *artistBornDate;
-@property (nonatomic, weak) UILabel *artistOccupation;
-@property (nonatomic, weak) UIScrollView *container;
+@property (nonatomic, strong) UILabel *artistLabel;
+@property (nonatomic, strong) UITextView *artistBio;
+@property (nonatomic, strong) UILabel *artistBirthName;
+@property (nonatomic, strong) UILabel *artistBornDate;
+@property (nonatomic, strong) UILabel *artistOccupation;
+@property (nonatomic, strong) UIScrollView *container;
 
 
 @end
