@@ -23,8 +23,6 @@
     self.artistLabel.textAlignment = NSTextAlignmentCenter;
     self.artistLabel.adjustsFontSizeToFitWidth = YES;
      
-    
-    
     // Set UILabel on cell
     //self.label = [[UILabel alloc] initWithFrame:self.bounds];
     //self.autoresizesSubviews = YES;
@@ -39,20 +37,18 @@
     //self.label.adjustsFontSizeToFitWidth = YES;
     
     
-    
-    
-    
-    
-    
-    
     self.artistDetailImage.image = artist.artistDetailImage;
     self.artistBio.text = artist.artistBio;
     self.artistBirthName.text = artist.artistBirthName;
     self.artistBornDate.text = artist.artistBornDate;
     self.artistOccupation.text = artist.artistOccupation;
+
+
+    [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 900)];
     
-    
+
 }
+
 
 
 - (IBAction)close:(id)sender {
