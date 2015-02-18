@@ -77,13 +77,34 @@
     // Create a UITextView to enclose the entire bio.
     
     // Try to calculate the height of the text that needs to be displayed.
-    UIFont *bioFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    UIFont *bioFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
     
-    CGSize textSize = [artist.artistBio]
+    CGSize textSize = [artist.artistBio sizeWithAttributes:@{NSFontAttributeName:bioFont}];
+    NSLog(@"textSize %@", NSStringFromCGSize(textSize));
     
-    self.artistBio = [[UITextView alloc] initWithFrame:CGRectMake(0, labelContainer.frame.size.height, labelContainer.frame.size.width, 200)];
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:artist.artistBio];
     
+    CGFloat height = [self textViewHeightForAttributedText:attrString andWidth:self.view.frame.size.width];
+    NSLog(@"height: %f", height);
     
+    self.artistBio = [[UITextView alloc] initWithFrame:CGRectMake(0, labelContainer.frame.size.height, self.view.frame.size.width, 200)];
+    self.artistBio.textColor = [UIColor blackColor];
+    self.artistBio.text = artist.artistBio;
+    self.artistBio.font = bioFont;
+    self.artistBio.editable = NO;
+    self.artistBio.selectable = NO;
+    
+    [self.view addSubview:self.artistBio];
+    
+
+    
+}
+
+- (CGFloat)textViewHeightForAttributedText: (NSAttributedString*)text andWidth: (CGFloat)width {
+    UITextView *calculationView = [[UITextView alloc] init];
+    [calculationView setAttributedText:text];
+    CGSize size = [calculationView sizeThatFits:CGSizeMake(width, FLT_MAX)];
+    return size.height;
 }
 
 - (void)viewDidLoad {
