@@ -70,34 +70,44 @@
     
     
     // Create a UIView that will house all the label info.
-    UIView *labelContainer = [[UIView alloc] initWithFrame: CGRectMake(0,heroImageView.frame.size.height, heroImageView.frame.size.width, 100)];
+    UIView *labelContainer = [[UIView alloc] initWithFrame: CGRectMake(0,heroImageView.frame.size.height, self.view.frame.size.width, 100)];
     labelContainer.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#fafafa*/
     [self.view addSubview:labelContainer];
     
     // Create a UITextView to enclose the entire bio.
     
     // Try to calculate the height of the text that needs to be displayed.
-    UIFont *bioFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
+    UIFont *bioFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:13];
     
     CGSize textSize = [artist.artistBio sizeWithAttributes:@{NSFontAttributeName:bioFont}];
     NSLog(@"textSize %@", NSStringFromCGSize(textSize));
     
-    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:artist.artistBio];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 3;
     
-    CGFloat height = [self textViewHeightForAttributedText:attrString andWidth:self.view.frame.size.width];
-    NSLog(@"height: %f", height);
+    NSDictionary *attrsDictionary = @{ NSFontAttributeName: bioFont, NSParagraphStyleAttributeName: paragraphStyle};
     
-    self.artistBio = [[UITextView alloc] initWithFrame:CGRectMake(0, labelContainer.frame.size.height, self.view.frame.size.width, 200)];
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:artist.artistBio attributes:attrsDictionary];
+    NSLog(@"attrString %@", attrString);
+    
+    CGFloat artistBioHeight = [self textViewHeightForAttributedText:attrString andWidth:300];
+    NSLog(@"height: %f", artistBioHeight);
+    
+    self.artistBio = [[UITextView alloc] initWithFrame:CGRectMake(0, 350, self.view.frame.size.width, artistBioHeight)];
     self.artistBio.textColor = [UIColor blackColor];
     self.artistBio.text = artist.artistBio;
     self.artistBio.font = bioFont;
     self.artistBio.editable = NO;
     self.artistBio.selectable = NO;
+    [self.artistBio sizeToFit];
+    //self.artistBio.layoutManager.delegate = self;
     
     [self.view addSubview:self.artistBio];
     
+}
 
-    
+- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager lineSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect {
+    return 10;
 }
 
 - (CGFloat)textViewHeightForAttributedText: (NSAttributedString*)text andWidth: (CGFloat)width {
@@ -112,8 +122,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor blackColor];
     
-    
-    
+    // Load a ScollView for the entire display.
     self.container = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.container.backgroundColor = [UIColor blackColor];
     self.container.scrollEnabled = YES;
