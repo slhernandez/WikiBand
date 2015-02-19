@@ -96,18 +96,15 @@
     self.artistBio = [[UITextView alloc] initWithFrame:CGRectMake(0, 350, self.view.frame.size.width, artistBioHeight)];
     self.artistBio.textColor = [UIColor blackColor];
     self.artistBio.text = artist.artistBio;
-    self.artistBio.font = bioFont;
+    //self.artistBio.font = bioFont;
     self.artistBio.editable = NO;
     self.artistBio.selectable = NO;
-    [self.artistBio sizeToFit];
-    //self.artistBio.layoutManager.delegate = self;
+    [self.artistBio setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+ 
+
     
     [self.view addSubview:self.artistBio];
     
-}
-
-- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager lineSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect {
-    return 10;
 }
 
 - (CGFloat)textViewHeightForAttributedText: (NSAttributedString*)text andWidth: (CGFloat)width {
