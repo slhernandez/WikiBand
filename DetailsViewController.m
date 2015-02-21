@@ -104,13 +104,8 @@
     //[self.artistBio setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
     
     //UIFont *bioFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:13];
-
     
-    
-    
- 
-
-    
+       
     [self.view addSubview:self.artistBio];
     
 }
@@ -121,6 +116,8 @@
     CGSize size = [calculationView sizeThatFits:CGSizeMake(width, FLT_MAX)];
     return size.height;
 }
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
