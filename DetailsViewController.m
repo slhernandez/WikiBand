@@ -12,6 +12,8 @@
 
 @interface DetailsViewController ()
 
+
+
 @end
 
 @implementation DetailsViewController
@@ -77,29 +79,35 @@
     // Create a UITextView to enclose the entire bio.
     
     // Try to calculate the height of the text that needs to be displayed.
-    UIFont *bioFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:13];
+    UIFont *bioFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
     
-    CGSize textSize = [artist.artistBio sizeWithAttributes:@{NSFontAttributeName:bioFont}];
-    NSLog(@"textSize %@", NSStringFromCGSize(textSize));
+    //CGSize textSize = [artist.artistBio sizeWithAttributes:@{NSFontAttributeName:bioFont}];
+    //NSLog(@"textSize %@", NSStringFromCGSize(textSize));
     
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = 3;
+    //NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    //paragraphStyle.lineSpacing = 3;
     
-    NSDictionary *attrsDictionary = @{ NSFontAttributeName: bioFont, NSParagraphStyleAttributeName: paragraphStyle};
+    //NSDictionary *attrsDictionary = @{ NSFontAttributeName: bioFont, NSParagraphStyleAttributeName: paragraphStyle};
     
-    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:artist.artistBio attributes:attrsDictionary];
-    NSLog(@"attrString %@", attrString);
+    //NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:artist.artistBio attributes:attrsDictionary];
+    //NSLog(@"attrString %@", attrString);
     
-    CGFloat artistBioHeight = [self textViewHeightForAttributedText:attrString andWidth:300];
-    NSLog(@"height: %f", artistBioHeight);
+    //CGFloat artistBioHeight = [self textViewHeightForAttributedText:attrString andWidth:300];
+    //NSLog(@"height: %f", artistBioHeight);
     
-    self.artistBio = [[UITextView alloc] initWithFrame:CGRectMake(0, 350, self.view.frame.size.width, artistBioHeight)];
+    self.artistBio = [[UITextView alloc] initWithFrame:CGRectMake(0, 350, self.view.frame.size.width, 900)];
     self.artistBio.textColor = [UIColor blackColor];
     self.artistBio.text = artist.artistBio;
-    //self.artistBio.font = bioFont;
-    self.artistBio.editable = NO;
-    self.artistBio.selectable = NO;
-    [self.artistBio setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+    self.artistBio.font = bioFont;
+    //self.artistBio.editable = NO;
+    //self.artistBio.selectable = NO;
+    //[self.artistBio setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+    
+    //UIFont *bioFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:13];
+
+    
+    
+    
  
 
     
