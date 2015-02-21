@@ -16,29 +16,16 @@
     
     Artist *artist = self.artist;
     // Layout the artist name in the center of the hero image
-    UIFont *customFont = [UIFont fontWithName:@"Avenir-Light" size:28]; //custom font
+    UIFont *avenirLightFont = [UIFont fontWithName:@"Avenir-Light" size:28]; //custom font
+    
     self.artistLabel.text = artist.artistName;
-    self.artistLabel.font = customFont;
+    self.artistLabel.font = avenirLightFont;
     self.artistLabel.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleWidth);
     //[self.artistLabel setTextColor:[UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:0.2]];
     self.artistLabel.shadowColor = [UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:0.2];
     self.artistLabel.shadowOffset = CGSizeMake(1,1);
     self.artistLabel.textAlignment = NSTextAlignmentCenter;
     self.artistLabel.adjustsFontSizeToFitWidth = YES;
-     
-    // Set UILabel on cell
-    //self.label = [[UILabel alloc] initWithFrame:self.bounds];
-    //self.autoresizesSubviews = YES;
-    //self.label.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    //self.label.font = [UIFont boldSystemFontOfSize:18];
-    //[self.label setTextColor:[UIColor colorWithRed:(255.0/255.0) green:(255.0/255.0) blue:(255.0/255.0) alpha:1.0]];
-    
-    //self.label.shadowColor = [UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:0.2];
-    //self.label.shadowOffset = CGSizeMake(1,1);
-    
-    //self.label.textAlignment = NSTextAlignmentCenter;
-    //self.label.adjustsFontSizeToFitWidth = YES;
-    
     
     self.artistDetailImage.image = artist.artistDetailImage;
     self.artistBio.text = artist.artistBio;
@@ -46,7 +33,15 @@
     self.artistBornDate.text = artist.artistBornDate;
     self.artistOccupation.text = artist.artistOccupation;
     
-    //self.artistBio.textContainer
+    UIFont *bebasNeueBoldFont = [UIFont fontWithName:@"BebasNeueBold" size:28];
+    self.appTitle.text = @"WIKIBAND";
+    self.appTitle.textColor = [UIColor whiteColor];
+    self.appTitle.font = bebasNeueBoldFont;
+    //UILabel *wikiBandLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 80)];
+    //wikiBandLabel.text = @"WIKIBAND";
+    //wikiBandLabel.textColor = [UIColor whiteColor];
+    //wikiBandLabel.font = bebasNeueBoldFont;
+    //[self.view addSubview:wikiBandLabel];
     
     // Create and layout the close button.
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -65,15 +60,13 @@
     NSArray *fontMatches = [bebasNeueBold matchingFontDescriptorsWithMandatoryKeys:nil];
     NSLog(@"fontMatches ... %@", fontMatches);
     
-    
-    
     // Get bold font style
     UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
     UIFontDescriptor *boldFontDescriptor = [fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
     UIFont *boldFont = [UIFont fontWithDescriptor:boldFontDescriptor size:0.0];
     
     self.artistBirthName.font = boldFont;
-
+    [self dumpAllFonts];
     
     [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 600)];
     

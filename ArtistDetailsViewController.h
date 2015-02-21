@@ -20,5 +20,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *artistBornDate;
 @property (nonatomic, weak) IBOutlet UILabel *artistOccupation;
 @property (nonatomic, weak) IBOutlet UIScrollView *container;
+@property (nonatomic, weak) IBOutlet UILabel *appTitle;
 
 @end
