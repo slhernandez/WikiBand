@@ -90,24 +90,24 @@
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     // Get a pointer to an object that represents the app bundle
-    //NSBundle *appBundle = [NSBundle mainBundle];
+    NSBundle *appBundle = [NSBundle mainBundle];
     // Look in the appBundle for the file ArtistDetailsViewController.xib
-    //ArtistDetailsViewController *advc = [[ArtistDetailsViewController alloc] initWithNibName:@"ArtistDetailsViewController" bundle:appBundle];
+    ArtistDetailsViewController *advc = [[ArtistDetailsViewController alloc] initWithNibName:@"ArtistDetailsViewController" bundle:appBundle];
     
-    DetailsViewController *newDetails = [[DetailsViewController alloc] init];
+    //DetailsViewController *newDetails = [[DetailsViewController alloc] init];
     
     Artist *selectedArtist = self.artists[indexPath.row];
     
-    newDetails.artist = selectedArtist;
-    newDetails.modalPresentationStyle = UIModalPresentationCustom;
-    newDetails.transitioningDelegate = self;
-    [self presentViewController:newDetails animated:YES completion:nil];
+    //newDetails.artist = selectedArtist;
+    //newDetails.modalPresentationStyle = UIModalPresentationCustom;
+    //newDetails.transitioningDelegate = self;
+    //[self presentViewController:newDetails animated:YES completion:nil];
     
-    //advc.artist = selectedArtist;
-    //advc.modalPresentationStyle = UIModalPresentationCustom;
-    //advc.transitioningDelegate = self;
-    //[self presentViewController:advc animated:YES completion: nil];
-    //[self.navigationController pushViewController:advc animated:YES];
+    advc.artist = selectedArtist;
+    advc.modalPresentationStyle = UIModalPresentationCustom;
+    advc.transitioningDelegate = self;
+    [self presentViewController:advc animated:YES completion: nil];
+    [self.navigationController pushViewController:advc animated:YES];
     
 }
 

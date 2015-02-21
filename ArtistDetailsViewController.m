@@ -42,6 +42,8 @@
     self.artistBirthName.text = artist.artistBirthName;
     self.artistBornDate.text = artist.artistBornDate;
     self.artistOccupation.text = artist.artistOccupation;
+    
+    //self.artistBio.
 
 
     [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 900)];
