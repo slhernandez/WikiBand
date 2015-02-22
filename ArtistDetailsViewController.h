@@ -21,5 +21,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *artistOccupation;
 @property (nonatomic, weak) IBOutlet UIScrollView *container;
 @property (nonatomic, weak) IBOutlet UILabel *appTitle;
+@property (weak, nonatomic) IBOutlet UIView *artistMetaContainer;
+@property (weak, nonatomic) IBOutlet UIView *heroContainer;
+@property (weak, nonatomic) IBOutlet UIView *bioContainer;
 
 @end

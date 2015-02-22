@@ -21,7 +21,6 @@
     self.artistLabel.text = artist.artistName;
     self.artistLabel.font = avenirLightFont;
     self.artistLabel.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleWidth);
-    //[self.artistLabel setTextColor:[UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:0.2]];
     self.artistLabel.shadowColor = [UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:0.2];
     self.artistLabel.shadowOffset = CGSizeMake(1,1);
     self.artistLabel.textAlignment = NSTextAlignmentCenter;
@@ -29,22 +28,23 @@
     
     self.artistDetailImage.image = artist.artistDetailImage;
     
+    // Add Image gradient to hero layer
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.artistDetailImage.bounds;
+    gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0] CGColor],
+                        (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4] CGColor],
+                        (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6] CGColor]];
+    [self.artistDetailImage.layer insertSublayer:gradient atIndex:0];
+    
     NSAttributedString *artistBioAttributed = [[NSAttributedString alloc] initWithString:artist.artistBio attributes:[self paragraphAttributes]];
-    //[self textViewHeightForAttributedText:artistBioAttributed andWidth:[self.view.frame.size.width]]
+    
     self.artistBio.attributedText = artistBioAttributed;
+    self.artistBio.scrollEnabled = NO;
+    [self textViewDidChange:self.artistBio];
+
     self.artistBirthName.text = artist.artistBirthName;
     self.artistBornDate.text = artist.artistBornDate;
     self.artistOccupation.text = artist.artistOccupation;
-    
-    //UIFont *bebasNeueBoldFont = [UIFont fontWithName:@"BebasNeueBold" size:28]
-    //self.appTitle.text = @"WIKIBAND";
-    //self.appTitle.textColor = [UIColor whiteColor];
-    //self.appTitle.font = bebasNeueBoldFont;
-    //UILabel *wikiBandLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 80)];
-    //wikiBandLabel.text = @"WIKIBAND";
-    //wikiBandLabel.textColor = [UIColor whiteColor];
-    //wikiBandLabel.font = bebasNeueBoldFont;
-    //[self.view addSubview:wikiBandLabel];
     
     // Create and layout the close button.
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -53,27 +53,21 @@
     closeButton.frame = CGRectMake(10.0, 10.0, 15.0, 15.0);
     [self.view addSubview:closeButton];
 
-    // Descriptor Matching - Family name matching
-    //UIFontDescriptor *helveticaNeueFamily = [UIFontDescriptor fontDescriptorWithFontAttributes:@{UIFontDescriptorFamilyAttribute: @"Helvetica Neue"}];
+    //[self dumpAllFonts];
     
-    //NSArray *fontMatches = [helveticaNeueFamily matchingFontDescriptorsWithMandatoryKeys:nil];
-    //NSLog(@"fontMatches ... %@", fontMatches);
+    // Calculate the heights of the three sub views that make up the details page.
+    NSInteger heroHeight = self.heroContainer.frame.size.height;
+    NSLog(@"heroHeight ... %li", (long)heroHeight);
+    NSInteger artistMetaHeight = self.artistMetaContainer.frame.size.height;
+    NSLog(@"artistMetaHeight ... %li", (long)artistMetaHeight);
+    NSInteger bioHeight = self.artistBio.frame.size.height;
+    NSLog(@"bioHeight ... %li", (long)bioHeight);
     
-    UIFontDescriptor *bebasNeueBold = [UIFontDescriptor fontDescriptorWithFontAttributes:@{UIFontDescriptorFamilyAttribute:@"BebasNeueBold"}];
-    NSArray *fontMatches = [bebasNeueBold matchingFontDescriptorsWithMandatoryKeys:nil];
-    NSLog(@"fontMatches ... %@", fontMatches);
+    NSInteger totalHeight = heroHeight + artistMetaHeight + bioHeight;
+    NSLog(@"totalHeight ... %li", (long)totalHeight);
     
-    // Get bold font style
-    //UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
-    //UIFontDescriptor *boldFontDescriptor = [fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
-    //UIFont *boldFont = [UIFont fontWithDescriptor:boldFontDescriptor size:0.0];
-    
-    //self.artistBirthName.font = boldFont;
-    [self dumpAllFonts];
-    
-    [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 800)];
-    
-
+    [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds),totalHeight)];
+   
 }
 
 - (BOOL) checkFont:(NSString *)fontName {
@@ -94,7 +88,7 @@
 }
 
 - (NSDictionary *)paragraphAttributes {
-    UIFont *paragraphFont = [UIFont fontWithName:@"Avenir-Book" size:15];
+    UIFont *paragraphFont = [UIFont fontWithName:@"Whitney-Book" size:15];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.firstLineHeadIndent = 10.0f;
     paragraphStyle.lineSpacing = 5.0f;
@@ -110,6 +104,15 @@
     [calculationView setAttributedText:text];
     CGSize size = [calculationView sizeThatFits:CGSizeMake(width, FLT_MAX)];
     return size.height;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    CGFloat fixedWidth = textView.frame.size.width;
+    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+    CGRect newFrame = textView.frame;
+    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+    textView.frame = newFrame;
 }
 
 - (IBAction)close:(id)sender {
