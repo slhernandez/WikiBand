@@ -8,6 +8,12 @@
 
 #import "ArtistCell.h"
 
+@interface ArtistCell()
+
+
+
+@end
+
 @implementation ArtistCell
 
 - (void)setPhoto:(NSString *)photo {
@@ -33,11 +39,13 @@
         self.label = [[UILabel alloc] initWithFrame:self.bounds];
         self.autoresizesSubviews = YES;
         self.label.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-        self.label.font = [UIFont boldSystemFontOfSize:18];
-        [self.label setTextColor:[UIColor colorWithRed:(255.0/255.0) green:(255.0/255.0) blue:(255.0/255.0) alpha:1.0]];
+        self.
         
-        self.label.shadowColor = [UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:0.2];
-        self.label.shadowOffset = CGSizeMake(1,1);
+        //self.label.font = [UIFont boldSystemFontOfSize:18];
+        
+        //[self.label setTextColor:[UIColor colorWithRed:(255.0/255.0) green:(255.0/255.0) blue:(255.0/255.0) alpha:1.0]];
+        //self.label.shadowColor = [UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:0.2];
+        //self.label.shadowOffset = CGSizeMake(1,1);
         
         self.label.textAlignment = NSTextAlignmentCenter;
         self.label.adjustsFontSizeToFitWidth = YES;
@@ -57,6 +65,12 @@
 - (void)setArtistName:(NSString *)name {
     self.label.text = [NSString stringWithFormat:@"%@", name];
 }
+
+- (void)setAttributedArtistName:(NSAttributedString *)attributedName {
+    self.label.attributedText = attributedName;
+}
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

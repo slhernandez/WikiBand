@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UILabel *label;
 
 - (void)setArtistName:(NSString *)name;
+- (void)setAttributedArtistName:(NSAttributedString *)attributedName;
 
 
 @end

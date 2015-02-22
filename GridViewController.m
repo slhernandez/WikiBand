@@ -19,6 +19,7 @@
 @property (nonatomic) NSArray *photos;
 @property (nonatomic, strong) NSArray *artists;
 @property (nonatomic) Artist *myArtist;
+@property (nonatomic, strong) NSDictionary *cellTitleAttributes;
 
 @end
 
@@ -80,10 +81,13 @@
     NSLog(@"artistBio ... %@", currentArtist.artistBio);
     
     cell.imageView.image = currentArtist.artistImage;
+    //cell.label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 18.0f];
     
-    cell.label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 18.0f];
-
-    [cell setArtistName:currentArtist.artistName];
+    NSAttributedString *artistNameAttributed = [[NSAttributedString alloc] initWithString:currentArtist.artistName attributes:[self cellTitleAttributes]];
+    
+    [cell setAttributedArtistName:artistNameAttributed];
+    
+    //[cell setArtistName:currentArtist.artistName];
     
     return cell;
 }
@@ -122,5 +126,27 @@
     return [[DismissDetailTransition alloc] init];
     
 }
+
+- (NSDictionary *)cellTitleAttributes {
+    
+    if (_cellTitleAttributes == nil) {
+        UIFont *font = [UIFont fontWithName:@"Whitney-Semibold" size:20.0f];
+        NSShadow *shadow = [[NSShadow alloc] init];
+        shadow.shadowBlurRadius = 2.0f;
+        shadow.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.50f];
+        shadow.shadowOffset = CGSizeMake(1,1);
+        _cellTitleAttributes = @{
+                                 NSShadowAttributeName: shadow,
+                                 NSFontAttributeName: font,
+                                 NSForegroundColorAttributeName: [UIColor whiteColor]
+                                 };
+        
+    }
+    
+    return _cellTitleAttributes;
+}
+
+
+
 
 @end

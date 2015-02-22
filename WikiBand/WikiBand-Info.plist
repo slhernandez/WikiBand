@@ -24,6 +24,8 @@
 	<string>1.0</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Whitney-Semibold-Bas.otf</string>
+		<string>Whitney-Book-Bas.otf</string>
 		<string>BebasNeue-Bold.otf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
