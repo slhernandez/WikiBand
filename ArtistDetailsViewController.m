@@ -28,15 +28,17 @@
     self.artistLabel.adjustsFontSizeToFitWidth = YES;
     
     self.artistDetailImage.image = artist.artistDetailImage;
-    self.artistBio.text = artist.artistBio;
+    
+    NSAttributedString *artistBioAttributed = [[NSAttributedString alloc] initWithString:artist.artistBio attributes:[self paragraphAttributes]];
+    self.artistBio.attributedText = artistBioAttributed;
     self.artistBirthName.text = artist.artistBirthName;
     self.artistBornDate.text = artist.artistBornDate;
     self.artistOccupation.text = artist.artistOccupation;
     
-    UIFont *bebasNeueBoldFont = [UIFont fontWithName:@"BebasNeueBold" size:28];
-    self.appTitle.text = @"WIKIBAND";
-    self.appTitle.textColor = [UIColor whiteColor];
-    self.appTitle.font = bebasNeueBoldFont;
+    //UIFont *bebasNeueBoldFont = [UIFont fontWithName:@"BebasNeueBold" size:28];
+    //self.appTitle.text = @"WIKIBAND";
+    //self.appTitle.textColor = [UIColor whiteColor];
+    //self.appTitle.font = bebasNeueBoldFont;
     //UILabel *wikiBandLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 80)];
     //wikiBandLabel.text = @"WIKIBAND";
     //wikiBandLabel.textColor = [UIColor whiteColor];
@@ -65,10 +67,10 @@
     UIFontDescriptor *boldFontDescriptor = [fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
     UIFont *boldFont = [UIFont fontWithDescriptor:boldFontDescriptor size:0.0];
     
-    self.artistBirthName.font = boldFont;
+    //self.artistBirthName.font = boldFont;
     [self dumpAllFonts];
     
-    [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 600)];
+    [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 900)];
     
 
 }
@@ -91,7 +93,7 @@
 }
 
 - (NSDictionary *)paragraphAttributes {
-    UIFont *paragraphFont = [UIFont fontWithName:@"HoeflerText-Regular" size:18];
+    UIFont *paragraphFont = [UIFont fontWithName:@"HoeflerText-Regular" size:16];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.firstLineHeadIndent = 10.0f;
     paragraphStyle.lineSpacing = 5.0f;
