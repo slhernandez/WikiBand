@@ -90,6 +90,18 @@
     }
 }
 
+- (NSDictionary *)paragraphAttributes {
+    UIFont *paragraphFont = [UIFont fontWithName:@"HoeflerText-Regular" size:18];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.firstLineHeadIndent = 10.0f;
+    paragraphStyle.lineSpacing = 5.0f;
+    paragraphStyle.paragraphSpacing = 10.0f;
+    
+    return @{ NSParagraphStyleAttributeName: paragraphStyle,
+              NSFontAttributeName: paragraphFont
+              };
+}
+
 - (CGFloat)textViewHeightForAttributedText: (NSAttributedString*)text andWidth: (CGFloat)width {
     UITextView *calculationView = [[UITextView alloc] init];
     [calculationView setAttributedText:text];

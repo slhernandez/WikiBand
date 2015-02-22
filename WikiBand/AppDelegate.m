@@ -10,6 +10,10 @@
 #import "GridViewController.h"
 #import "ArtistDetailsViewController.h"
 
+@interface AppDelegate ()
+@property (strong, nonatomic) NSDictionary *titleAttributes;
+@end
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -17,6 +21,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     GridViewController *gridViewController = [[GridViewController alloc] init];
+   
     
     // Get a pointer to an object that represents the app bundle
     //NSBundle *appBundle = [NSBundle mainBundle];
@@ -28,9 +33,11 @@
     UINavigationBar *navigationBar = navigationController.navigationBar;
     //navigationBar.barTintColor = [UIColor colorWithRed:(0.0 / 255.0) green:(0.0 /255.0) blue:(0.0 /255.0) alpha:0.2];
     //navigationBar.barTintColor = [UIColor whiteColor];
-    navigationBar.barTintColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:0.8];
-    //navigationBar.barStyle = UIBarStyleBlackOpaque;
+    //navigationBar.barTintColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:0.8];
+    navigationBar.barStyle = UIBarStyleBlackOpaque;
     //navigationBar.barStyle = UIBarStyleDefault;
+    
+    [navigationBar setTitleTextAttributes:self.titleAttributes];
     
     self.window.rootViewController = navigationController;
     
@@ -40,6 +47,26 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+- (NSDictionary *)titleAttributes {
+    
+    if (_titleAttributes == nil) {
+        UIFont *font = [UIFont fontWithName:@"BebasNeueBold" size:28.0f];
+        NSShadow *shadow = [[NSShadow alloc] init];
+        shadow.shadowBlurRadius = 2.0f;
+        shadow.shadowColor = [UIColor grayColor];
+        shadow.shadowOffset = CGSizeMake(1,1);
+        _titleAttributes = @{
+                             NSStrokeWidthAttributeName: @2.0f,
+                             NSFontAttributeName: font,
+                             NSStrokeColorAttributeName: [UIColor whiteColor]
+                             };
+        
+    }
+    
+    return _titleAttributes;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

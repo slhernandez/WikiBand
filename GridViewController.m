@@ -53,8 +53,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+     //UIFont *bebasNeueBoldFont = [UIFont fontWithName:@"BebasNeueBold" size:28];
     self.title = @"WikiBand";
+    
     
     [self.collectionView registerClass:[ArtistCell class] forCellWithReuseIdentifier:@"photo"];
     self.collectionView.backgroundColor = [UIColor whiteColor];
