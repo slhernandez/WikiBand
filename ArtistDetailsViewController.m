@@ -30,7 +30,7 @@
     self.artistDetailImage.image = artist.artistDetailImage;
     
     NSAttributedString *artistBioAttributed = [[NSAttributedString alloc] initWithString:artist.artistBio attributes:[self paragraphAttributes]];
-    [self textViewHeightForAttributedText:artistBioAttributed andWidth:[self.view.frame.size.width]]
+    //[self textViewHeightForAttributedText:artistBioAttributed andWidth:[self.view.frame.size.width]]
     self.artistBio.attributedText = artistBioAttributed;
     self.artistBirthName.text = artist.artistBirthName;
     self.artistBornDate.text = artist.artistBornDate;
