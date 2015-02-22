@@ -30,12 +30,13 @@
     self.artistDetailImage.image = artist.artistDetailImage;
     
     NSAttributedString *artistBioAttributed = [[NSAttributedString alloc] initWithString:artist.artistBio attributes:[self paragraphAttributes]];
+    [self textViewHeightForAttributedText:artistBioAttributed andWidth:[self.view.frame.size.width]]
     self.artistBio.attributedText = artistBioAttributed;
     self.artistBirthName.text = artist.artistBirthName;
     self.artistBornDate.text = artist.artistBornDate;
     self.artistOccupation.text = artist.artistOccupation;
     
-    //UIFont *bebasNeueBoldFont = [UIFont fontWithName:@"BebasNeueBold" size:28];
+    //UIFont *bebasNeueBoldFont = [UIFont fontWithName:@"BebasNeueBold" size:28]
     //self.appTitle.text = @"WIKIBAND";
     //self.appTitle.textColor = [UIColor whiteColor];
     //self.appTitle.font = bebasNeueBoldFont;
@@ -63,14 +64,14 @@
     NSLog(@"fontMatches ... %@", fontMatches);
     
     // Get bold font style
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
-    UIFontDescriptor *boldFontDescriptor = [fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
-    UIFont *boldFont = [UIFont fontWithDescriptor:boldFontDescriptor size:0.0];
+    //UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
+    //UIFontDescriptor *boldFontDescriptor = [fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
+    //UIFont *boldFont = [UIFont fontWithDescriptor:boldFontDescriptor size:0.0];
     
     //self.artistBirthName.font = boldFont;
     [self dumpAllFonts];
     
-    [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 900)];
+    [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 800)];
     
 
 }
@@ -93,7 +94,7 @@
 }
 
 - (NSDictionary *)paragraphAttributes {
-    UIFont *paragraphFont = [UIFont fontWithName:@"HoeflerText-Regular" size:16];
+    UIFont *paragraphFont = [UIFont fontWithName:@"Avenir-Book" size:15];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.firstLineHeadIndent = 10.0f;
     paragraphStyle.lineSpacing = 5.0f;

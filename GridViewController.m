@@ -56,10 +56,10 @@
      //UIFont *bebasNeueBoldFont = [UIFont fontWithName:@"BebasNeueBold" size:28];
     self.title = @"WikiBand";
     
-    
     [self.collectionView registerClass:[ArtistCell class] forCellWithReuseIdentifier:@"photo"];
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    //self.collectionView.backgroundColor = [UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:1.0];
+    self.collectionView.scrollEnabled = YES;
+    self.collectionView.bounces = NO;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
