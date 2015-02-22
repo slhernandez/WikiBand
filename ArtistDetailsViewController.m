@@ -9,6 +9,10 @@
 #import "ArtistDetailsViewController.h"
 #import "Artist.h"
 
+@interface ArtistDetailsViewController()
+@property (nonatomic, strong)NSDictionary *heroTitleAttributes;
+@end
+
 @implementation ArtistDetailsViewController
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -16,13 +20,11 @@
     
     Artist *artist = self.artist;
     // Layout the artist name in the center of the hero image
-    UIFont *avenirLightFont = [UIFont fontWithName:@"Avenir-Light" size:28]; //custom font
+    //UIFont *avenirLightFont = [UIFont fontWithName:@"Avenir-Light" size:28]; //custom font
     
-    self.artistLabel.text = artist.artistName;
-    self.artistLabel.font = avenirLightFont;
-    self.artistLabel.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleWidth);
-    self.artistLabel.shadowColor = [UIColor colorWithRed:(0.0/255.0) green:(0.0/255.0) blue:(0.0/255.0) alpha:0.2];
-    self.artistLabel.shadowOffset = CGSizeMake(1,1);
+    NSAttributedString *artistNameAttributed = [[NSAttributedString alloc] initWithString:artist.artistName attributes:[self heroTitleAttributes]];
+    //self.artistLabel.text = artist.artistName;
+    self.artistLabel.attributedText = artistNameAttributed;
     self.artistLabel.textAlignment = NSTextAlignmentCenter;
     self.artistLabel.adjustsFontSizeToFitWidth = YES;
     
@@ -86,6 +88,27 @@
         }
     }
 }
+
+- (NSDictionary *)heroTitleAttributes {
+    
+    if (_heroTitleAttributes == nil) {
+        UIFont *font = [UIFont fontWithName:@"Whitney-Semibold" size:28.0f];
+        NSShadow *shadow = [[NSShadow alloc] init];
+        shadow.shadowBlurRadius = 2.0f;
+        shadow.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.50f];
+        shadow.shadowOffset = CGSizeMake(1,1);
+        _heroTitleAttributes = @{
+                                 NSShadowAttributeName: shadow,
+                                 NSFontAttributeName: font,
+                                 NSForegroundColorAttributeName: [UIColor whiteColor]
+                                 //NSUnderlineStyleAttributeName: NSUnderlineStyleThick
+                                 };
+        
+    }
+    
+    return _heroTitleAttributes;
+}
+
 
 - (NSDictionary *)paragraphAttributes {
     UIFont *paragraphFont = [UIFont fontWithName:@"Whitney-Book" size:15];
