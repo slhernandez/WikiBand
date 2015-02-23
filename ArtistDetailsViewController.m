@@ -43,7 +43,9 @@
     self.artistBio.scrollEnabled = NO;
     [self textViewDidChange:self.artistBio];
 
-    self.artistBirthName.text = artist.artistBirthName;
+    NSAttributedString *artistBirthNameAttributed = [[NSAttributedString alloc] initWithString:artist.artistBirthName attributes:[self valueNameAttributes]];
+    self.artistBirthName.attributedText = artistBirthNameAttributed;
+    //self.artistBirthName.text = artist.artistBirthName;
     self.artistBornDate.text = artist.artistBornDate;
     self.artistOccupation.text = artist.artistOccupation;
     
