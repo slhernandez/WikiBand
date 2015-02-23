@@ -24,5 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIView *artistMetaContainer;
 @property (weak, nonatomic) IBOutlet UIView *heroContainer;
 @property (weak, nonatomic) IBOutlet UIView *bioContainer;
+@property (weak, nonatomic) IBOutlet UILabel *birthNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bornLabel;
+@property (weak, nonatomic) IBOutlet UILabel *occupationsLabel;
 
 @end

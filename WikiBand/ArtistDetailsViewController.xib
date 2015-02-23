@@ -16,7 +16,10 @@
                 <outlet property="artistLabel" destination="sPb-f5-Pcz" id="WWm-fY-MKS"/>
                 <outlet property="artistMetaContainer" destination="X4m-Kf-xQD" id="fgu-IF-mG6"/>
                 <outlet property="artistOccupation" destination="UoU-Vb-CD2" id="db3-RC-eyN"/>
+                <outlet property="birthNameLabel" destination="QfQ-lT-fw4" id="lWE-l2-FOT"/>
+                <outlet property="bornLabel" destination="R4l-jc-1LK" id="VrZ-bi-7ro"/>
                 <outlet property="container" destination="DUN-aZ-z5Q" id="O67-Yq-Q8b"/>
+                <outlet property="occupationsLabel" destination="Vou-IC-fHH" id="L6M-pM-fcC"/>
                 <outlet property="view" destination="DUN-aZ-z5Q" id="TtF-w2-kNg"/>
             </connections>
         </placeholder>

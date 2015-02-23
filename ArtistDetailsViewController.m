@@ -10,7 +10,9 @@
 #import "Artist.h"
 
 @interface ArtistDetailsViewController()
-@property (nonatomic, strong)NSDictionary *heroTitleAttributes;
+@property (nonatomic, strong) NSDictionary *heroTitleAttributes;
+@property (nonatomic, strong) NSDictionary *labelNameAttributes;
+@property (nonatomic, strong) NSDictionary *valueNameAttributes;
 @end
 
 @implementation ArtistDetailsViewController
@@ -19,11 +21,8 @@
     [super viewWillAppear:animated];
     
     Artist *artist = self.artist;
-    // Layout the artist name in the center of the hero image
-    //UIFont *avenirLightFont = [UIFont fontWithName:@"Avenir-Light" size:28]; //custom font
     
-    NSAttributedString *artistNameAttributed = [[NSAttributedString alloc] initWithString:artist.artistName attributes:[self heroTitleAttributes]];
-    //self.artistLabel.text = artist.artistName;
+    NSAttributedString *artistNameAttributed = [[NSAttributedString alloc] initWithString:[artist.artistName uppercaseString] attributes:[self heroTitleAttributes]];
     self.artistLabel.attributedText = artistNameAttributed;
     self.artistLabel.textAlignment = NSTextAlignmentCenter;
     self.artistLabel.adjustsFontSizeToFitWidth = YES;
@@ -92,12 +91,16 @@
 - (NSDictionary *)heroTitleAttributes {
     
     if (_heroTitleAttributes == nil) {
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = 10.0f;
+        
         UIFont *font = [UIFont fontWithName:@"Whitney-Semibold" size:28.0f];
         NSShadow *shadow = [[NSShadow alloc] init];
         shadow.shadowBlurRadius = 2.0f;
         shadow.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.50f];
         shadow.shadowOffset = CGSizeMake(1,1);
         _heroTitleAttributes = @{
+                                 NSParagraphStyleAttributeName: paragraphStyle,
                                  NSShadowAttributeName: shadow,
                                  NSFontAttributeName: font,
                                  NSForegroundColorAttributeName: [UIColor whiteColor]
@@ -119,7 +122,33 @@
     
     return @{ NSParagraphStyleAttributeName: paragraphStyle,
               NSFontAttributeName: paragraphFont
-              };
+            };
+}
+
+- (NSDictionary *)labelNameAttributes {
+    if (_labelNameAttributes == nil) {
+        UIFont *labelFont = [UIFont fontWithName:@"Whitney-Medium" size:12];
+        _labelNameAttributes = @{
+                                 NSFontAttributeName: labelFont,
+                                 NSForegroundColorAttributeName: [UIColor colorWithRed:0.482 green:0.533 blue:0.58 alpha:1]
+                                 };
+    }
+    
+    return _labelNameAttributes;
+    
+}
+
+- (NSDictionary *)valueNameAttributes {
+    if (_valueNameAttributes == nil) {
+        UIFont *labelFont = [UIFont fontWithName:@"Whitney-Book" size:12];
+        _valueNameAttributes = @{
+                                 NSFontAttributeName: labelFont,
+                                 NSForegroundColorAttributeName: [UIColor colorWithRed:0.482 green:0.533 blue:0.58 alpha:1]
+                                 };
+    }
+    
+    return _valueNameAttributes;
+
 }
 
 - (CGFloat)textViewHeightForAttributedText: (NSAttributedString*)text andWidth: (CGFloat)width {
