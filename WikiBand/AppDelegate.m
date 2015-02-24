@@ -34,8 +34,12 @@
     //navigationBar.barTintColor = [UIColor colorWithRed:(0.0 / 255.0) green:(0.0 /255.0) blue:(0.0 /255.0) alpha:0.2];
     //navigationBar.barTintColor = [UIColor whiteColor];
     //navigationBar.barTintColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:0.8];
-    navigationBar.barStyle = UIBarStyleBlackOpaque;
+    //navigationBar.barStyle = UIBarStyleBlackOpaque;
+    navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    //[navigationController setNavigationBarHidden:YES animated:YES];
     //navigationBar.barStyle = UIBarStyleDefault;
+    
+    
     
     [navigationBar setTitleTextAttributes:self.titleAttributes];
     
@@ -44,6 +48,7 @@
     // Override point for customization after application launch.
     //self.window.backgroundColor = [UIColor colorWithRed:(255.0/255.0) green:(255.0/255.0) blue:(255.0/255.0) alpha:1.0];
     self.window.backgroundColor = [UIColor whiteColor];
+    //[application setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -93,6 +98,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 @end
