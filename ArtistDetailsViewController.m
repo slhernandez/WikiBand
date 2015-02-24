@@ -41,13 +41,20 @@
     
     self.artistBio.attributedText = artistBioAttributed;
     self.artistBio.scrollEnabled = NO;
+    // Call this function to dynamically calculate it's own height.
     [self textViewDidChange:self.artistBio];
+    
+    //NSAttributedString *birthLabelAttributed = [[NSAttributedString alloc] initWithString:self.birthNameLabel.text attributes:[self labelNameAttributes]];
+    //self.birthNameLabel.attributedText = birthLabelAttributed;
 
     NSAttributedString *artistBirthNameAttributed = [[NSAttributedString alloc] initWithString:artist.artistBirthName attributes:[self valueNameAttributes]];
     self.artistBirthName.attributedText = artistBirthNameAttributed;
-    //self.artistBirthName.text = artist.artistBirthName;
-    self.artistBornDate.text = artist.artistBornDate;
-    self.artistOccupation.text = artist.artistOccupation;
+    
+    NSAttributedString *artistBornDateAttributed = [[NSAttributedString alloc] initWithString:artist.artistBornDate attributes:[self valueNameAttributes]];
+    self.artistBornDate.attributedText = artistBornDateAttributed;
+    
+    NSAttributedString *artistOccupationAttributed = [[NSAttributedString alloc] initWithString:artist.artistOccupation attributes:[self valueNameAttributes]];
+    self.artistOccupation.attributedText = artistOccupationAttributed;
     
     // Create and layout the close button.
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -56,7 +63,7 @@
     closeButton.frame = CGRectMake(10.0, 10.0, 15.0, 15.0);
     [self.view addSubview:closeButton];
 
-    //[self dumpAllFonts];
+    [self dumpAllFonts];
     
     // Calculate the heights of the three sub views that make up the details page.
     NSInteger heroHeight = self.heroContainer.frame.size.height;
@@ -129,7 +136,7 @@
 
 - (NSDictionary *)labelNameAttributes {
     if (_labelNameAttributes == nil) {
-        UIFont *labelFont = [UIFont fontWithName:@"Whitney-Medium" size:12];
+        UIFont *labelFont = [UIFont fontWithName:@"Whitney-Medium" size:14];
         _labelNameAttributes = @{
                                  NSFontAttributeName: labelFont,
                                  NSForegroundColorAttributeName: [UIColor colorWithRed:0.482 green:0.533 blue:0.58 alpha:1]
@@ -142,7 +149,7 @@
 
 - (NSDictionary *)valueNameAttributes {
     if (_valueNameAttributes == nil) {
-        UIFont *labelFont = [UIFont fontWithName:@"Whitney-Book" size:12];
+        UIFont *labelFont = [UIFont fontWithName:@"Whitney-Book" size:14];
         _valueNameAttributes = @{
                                  NSFontAttributeName: labelFont,
                                  NSForegroundColorAttributeName: [UIColor colorWithRed:0.482 green:0.533 blue:0.58 alpha:1]
