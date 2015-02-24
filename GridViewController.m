@@ -130,7 +130,7 @@
 - (NSDictionary *)cellTitleAttributes {
     
     if (_cellTitleAttributes == nil) {
-        UIFont *font = [UIFont fontWithName:@"Whitney-Semibold" size:20.0f];
+        UIFont *font = [UIFont fontWithName:@"Whitney-Book" size:20.0f];
         NSShadow *shadow = [[NSShadow alloc] init];
         shadow.shadowBlurRadius = 2.0f;
         shadow.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.50f];
