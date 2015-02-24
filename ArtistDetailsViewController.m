@@ -44,8 +44,18 @@
     // Call this function to dynamically calculate it's own height.
     [self textViewDidChange:self.artistBio];
     
-    //NSAttributedString *birthLabelAttributed = [[NSAttributedString alloc] initWithString:self.birthNameLabel.text attributes:[self labelNameAttributes]];
-    //self.birthNameLabel.attributedText = birthLabelAttributed;
+    NSLog(@"birth name label... %@", self.birthNameLabel.text);
+    
+    self.artistMetaContainer.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1];
+    
+    NSAttributedString *birthLabelAttributed = [[NSAttributedString alloc] initWithString:self.birthNameLabel.text attributes:[self labelNameAttributes]];
+    self.birthNameLabel.attributedText = birthLabelAttributed;
+    
+    NSAttributedString *bornLabelAttributed = [[NSAttributedString alloc] initWithString:self.bornLabel.text attributes:[self labelNameAttributes]];
+    self.bornLabel.attributedText = bornLabelAttributed;
+    
+    NSAttributedString *occupationLabelAttributed = [[NSAttributedString alloc] initWithString:self.occupationsLabel.text attributes:[self labelNameAttributes]];
+    self.occupationsLabel.attributedText = occupationLabelAttributed;
 
     NSAttributedString *artistBirthNameAttributed = [[NSAttributedString alloc] initWithString:artist.artistBirthName attributes:[self valueNameAttributes]];
     self.artistBirthName.attributedText = artistBirthNameAttributed;
@@ -102,6 +112,7 @@
     if (_heroTitleAttributes == nil) {
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.lineSpacing = 10.0f;
+        paragraphStyle.paragraphSpacing = 10.0f;
         
         UIFont *font = [UIFont fontWithName:@"Whitney-Semibold" size:28.0f];
         NSShadow *shadow = [[NSShadow alloc] init];
@@ -112,8 +123,8 @@
                                  NSParagraphStyleAttributeName: paragraphStyle,
                                  NSShadowAttributeName: shadow,
                                  NSFontAttributeName: font,
-                                 NSForegroundColorAttributeName: [UIColor whiteColor]
-                                 //NSUnderlineStyleAttributeName: NSUnderlineStyleThick
+                                 NSForegroundColorAttributeName: [UIColor whiteColor],
+                                 NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)
                                  };
         
     }
@@ -126,7 +137,7 @@
     UIFont *paragraphFont = [UIFont fontWithName:@"Whitney-Book" size:15];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.firstLineHeadIndent = 10.0f;
-    paragraphStyle.lineSpacing = 5.0f;
+    paragraphStyle.lineSpacing = 10.0f;
     paragraphStyle.paragraphSpacing = 10.0f;
     
     return @{ NSParagraphStyleAttributeName: paragraphStyle,
@@ -136,7 +147,7 @@
 
 - (NSDictionary *)labelNameAttributes {
     if (_labelNameAttributes == nil) {
-        UIFont *labelFont = [UIFont fontWithName:@"Whitney-Medium" size:14];
+        UIFont *labelFont = [UIFont fontWithName:@"Whitney-Semibold" size:14];
         _labelNameAttributes = @{
                                  NSFontAttributeName: labelFont,
                                  NSForegroundColorAttributeName: [UIColor colorWithRed:0.482 green:0.533 blue:0.58 alpha:1]
