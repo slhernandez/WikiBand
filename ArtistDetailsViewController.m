@@ -21,6 +21,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    //self.view.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
+    
     Artist *artist = self.artist;
     
     NSAttributedString *artistNameAttributed = [[NSAttributedString alloc] initWithString:[artist.artistName uppercaseString] attributes:[self heroTitleAttributes]];
@@ -47,7 +49,8 @@
     
     NSLog(@"birth name label... %@", self.birthNameLabel.text);
     
-    self.artistMetaContainer.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1];
+    //self.artistMetaContainer.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1];
+    self.artistMetaContainer.backgroundColor = [UIColor whiteColor];
     
     NSAttributedString *birthLabelAttributed = [[NSAttributedString alloc] initWithString:self.birthNameLabel.text attributes:[self labelNameAttributes]];
     self.birthNameLabel.attributedText = birthLabelAttributed;
@@ -66,6 +69,9 @@
     
     NSAttributedString *artistOccupationAttributed = [[NSAttributedString alloc] initWithString:artist.artistOccupation attributes:[self valueNameAttributes]];
     self.artistOccupation.attributedText = artistOccupationAttributed;
+    
+    self.bioContainer.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
+    self.artistBio.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
     
     // Create and layout the close button.
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
