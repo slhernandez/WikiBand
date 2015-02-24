@@ -8,6 +8,7 @@
 
 #import "ArtistDetailsViewController.h"
 #import "Artist.h"
+#import "UIButton+Extensions.h"
 
 @interface ArtistDetailsViewController()
 @property (nonatomic, strong) NSDictionary *heroTitleAttributes;
@@ -32,8 +33,8 @@
     // Add Image gradient to hero layer
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.artistDetailImage.bounds;
-    gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0] CGColor],
-                        (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4] CGColor],
+    gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4] CGColor],
+                        (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2] CGColor],
                         (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6] CGColor]];
     [self.artistDetailImage.layer insertSublayer:gradient atIndex:0];
     
@@ -71,20 +72,16 @@
     [closeButton addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
     [closeButton setBackgroundImage:[UIImage imageNamed:@"close-icon"] forState:UIControlStateNormal];
     closeButton.frame = CGRectMake(10.0, 10.0, 15.0, 15.0);
+    [closeButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
     [self.view addSubview:closeButton];
 
-    [self dumpAllFonts];
+    //[self dumpAllFonts];
     
     // Calculate the heights of the three sub views that make up the details page.
     NSInteger heroHeight = self.heroContainer.frame.size.height;
-    NSLog(@"heroHeight ... %li", (long)heroHeight);
     NSInteger artistMetaHeight = self.artistMetaContainer.frame.size.height;
-    NSLog(@"artistMetaHeight ... %li", (long)artistMetaHeight);
     NSInteger bioHeight = self.artistBio.frame.size.height;
-    NSLog(@"bioHeight ... %li", (long)bioHeight);
-    
     NSInteger totalHeight = heroHeight + artistMetaHeight + bioHeight;
-    NSLog(@"totalHeight ... %li", (long)totalHeight);
     
     [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds),totalHeight)];
    

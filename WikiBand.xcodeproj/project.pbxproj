@@ -12,6 +12,7 @@
 		E750D4E31A9A7B6E0004ADD7 /* Whitney-Semibold-Bas.otf in Resources */ = {isa = PBXBuildFile; fileRef = E750D4E21A9A7B6E0004ADD7 /* Whitney-Semibold-Bas.otf */; };
 		E7A4A9341A914AD100ACE036 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A4A9331A914AD100ACE036 /* DetailsViewController.m */; };
 		E7A4A9361A915EC700ACE036 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A4A9351A915EC700ACE036 /* QuartzCore.framework */; };
+		E95DDB5F1A9CA19000C6560D /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E95DDB5E1A9CA19000C6560D /* UIButton+Extensions.m */; };
 		E9A77FAB1A99283C0020DB2E /* BebasNeue-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9A77FAA1A99283C0020DB2E /* BebasNeue-Bold.otf */; };
 		E9B8FBD419A0033D00607236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B8FBD319A0033D00607236 /* Foundation.framework */; };
 		E9B8FBD619A0033D00607236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B8FBD519A0033D00607236 /* CoreGraphics.framework */; };
@@ -52,6 +53,8 @@
 		E7A4A9321A914AD100ACE036 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = ../DetailsViewController.h; sourceTree = "<group>"; };
 		E7A4A9331A914AD100ACE036 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsViewController.m; path = ../DetailsViewController.m; sourceTree = "<group>"; };
 		E7A4A9351A915EC700ACE036 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E95DDB5D1A9CA19000C6560D /* UIButton+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extensions.h"; sourceTree = "<group>"; };
+		E95DDB5E1A9CA19000C6560D /* UIButton+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extensions.m"; sourceTree = "<group>"; };
 		E9A77FAA1A99283C0020DB2E /* BebasNeue-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BebasNeue-Bold.otf"; path = "../BebasNeue-Bold.otf"; sourceTree = "<group>"; };
 		E9B8FBD019A0033D00607236 /* WikiBand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiBand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B8FBD319A0033D00607236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -166,6 +169,8 @@
 				E9D6237319A38B68002A05A4 /* DismissDetailTransition.m */,
 				E9D6237519AC07B7002A05A4 /* ArtistStore.h */,
 				E9D6237619AC07B7002A05A4 /* ArtistStore.m */,
+				E95DDB5D1A9CA19000C6560D /* UIButton+Extensions.h */,
+				E95DDB5E1A9CA19000C6560D /* UIButton+Extensions.m */,
 			);
 			path = WikiBand;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				E9D6237719AC07B7002A05A4 /* ArtistStore.m in Sources */,
 				E9B8FC0719A00E9D00607236 /* ArtistCell.m in Sources */,
 				E9D6237119A2F68A002A05A4 /* PresentDetailTransition.m in Sources */,
+				E95DDB5F1A9CA19000C6560D /* UIButton+Extensions.m in Sources */,
 				E9D6236E19A163F7002A05A4 /* Artist.m in Sources */,
 				E9D6237419A38B68002A05A4 /* DismissDetailTransition.m in Sources */,
 				E9B8FBE019A0033D00607236 /* main.m in Sources */,
