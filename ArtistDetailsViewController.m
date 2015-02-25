@@ -20,6 +20,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self addConstraints];
+    self.view.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1];
     
     //self.view.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
     
@@ -35,7 +37,7 @@
     // Add Image gradient to hero layer
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.artistDetailImage.bounds;
-    gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4] CGColor],
+    gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0] CGColor],
                         (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2] CGColor],
                         (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6] CGColor]];
     [self.artistDetailImage.layer insertSublayer:gradient atIndex:0];
@@ -90,6 +92,11 @@
     NSInteger totalHeight = heroHeight + artistMetaHeight + bioHeight;
     
     [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds),totalHeight)];
+    
+    // add colored backgrounds for debugging
+    self.bioContainer.backgroundColor = [UIColor blueColor];
+    self.artistMetaContainer.backgroundColor = [UIColor redColor];
+
    
 }
 
@@ -200,10 +207,34 @@
     return YES;
 }
 
+- (void)addConstraints {
+    [self.view removeConstraints:self.view.constraints];
+    
+    UIView *bioContainer = self.bioContainer;
+    UIView *artistMetaContainer = self.artistMetaContainer;
+    UIView *heroContainer = self.heroContainer;
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(bioContainer, artistMetaContainer, heroContainer);
+    
+    NSArray *constraints = [NSLayoutConstraint
+                            constraintsWithVisualFormat:@"V:|-[heroContainer]-10-[artistMetaContainer]-50-[bioContainer]"
+                            options:0
+                            metrics:nil
+                            views:views];
+    
+    //constraints = [constraints arrayByAddingObjectsFromArray:[NSLayoutConstraint
+    //                                                          constraintsWithVisualFormat:@"V:|-10-[bioContainer]-10-|"
+    //                                                          options:0
+    //                                                          metrics:nil
+    //                                                          views:views]];
+    
+    
+    [self.view addConstraints:constraints];
+    
+}
 
 - (void)viewDidLoad {
-    
-    
+   
     
 }
 
