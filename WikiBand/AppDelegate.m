@@ -33,7 +33,7 @@
     UINavigationBar *navigationBar = navigationController.navigationBar;
     //navigationBar.barTintColor = [UIColor colorWithRed:(0.0 / 255.0) green:(0.0 /255.0) blue:(0.0 /255.0) alpha:0.2];
     //navigationBar.barTintColor = [UIColor whiteColor];
-    //navigationBar.barTintColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:0.8];
+    //navigationBar.barTintColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:0.5];
     //navigationBar.barStyle = UIBarStyleBlackOpaque;
     navigationBar.barStyle = UIBarStyleBlackTranslucent;
     //[navigationController setNavigationBarHidden:YES animated:YES];

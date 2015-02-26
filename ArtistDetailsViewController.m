@@ -70,7 +70,10 @@
     self.artistBornDate.attributedText = artistBornDateAttributed;
     
     NSAttributedString *artistOccupationAttributed = [[NSAttributedString alloc] initWithString:artist.artistOccupation attributes:[self valueNameAttributes]];
+    
     self.artistOccupation.attributedText = artistOccupationAttributed;
+    [self.artistOccupation sizeToFit];
+    
     
     self.bioContainer.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
     self.artistBio.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
@@ -79,7 +82,7 @@
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [closeButton addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
     [closeButton setBackgroundImage:[UIImage imageNamed:@"close-icon"] forState:UIControlStateNormal];
-    closeButton.frame = CGRectMake(10.0, 10.0, 15.0, 15.0);
+    closeButton.frame = CGRectMake(10.0, 25.0, 15.0, 15.0);
     [closeButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
     [self.view addSubview:closeButton];
 
@@ -171,7 +174,10 @@
 - (NSDictionary *)valueNameAttributes {
     if (_valueNameAttributes == nil) {
         UIFont *labelFont = [UIFont fontWithName:@"Whitney-Book" size:14];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = 5.0f;
         _valueNameAttributes = @{
+                                 NSParagraphStyleAttributeName: paragraphStyle,
                                  NSFontAttributeName: labelFont,
                                  NSForegroundColorAttributeName: [UIColor colorWithRed:0.482 green:0.533 blue:0.58 alpha:1]
                                  };
@@ -278,7 +284,8 @@
 }
 
 - (void)viewDidLoad {
-   
+    //self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.edgesForExtendedLayout = UIRectEdgeTop;
     
 }
 

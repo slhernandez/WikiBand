@@ -21,7 +21,7 @@
 //    UIImage *image = [[UIImage alloc] initWithContentsOfFile:photo];
     
     UIImage *image = [UIImage imageNamed:photo];
-    NSLog(@"image is now.. %@", image);
+    //NSLog(@"image is now.. %@", image);
     self.imageView.image = image;
 
 }
@@ -39,7 +39,7 @@
         self.label = [[UILabel alloc] initWithFrame:self.bounds];
         self.autoresizesSubviews = YES;
         self.label.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-        self.
+        
         
         //self.label.font = [UIFont boldSystemFontOfSize:18];
         

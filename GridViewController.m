@@ -45,9 +45,9 @@
                    @"TheNational",
                    @"WillieNelson", nil];
     
-    NSLog(@"Photos arrary: %@", self.photos);
+    //NSLog(@"Photos arrary: %@", self.photos);
     _artists = [Artist artistItems];
-    NSLog(@"_artists ... %@", _artists);
+    //NSLog(@"_artists ... %@", _artists);
     
     return (self = [super initWithCollectionViewLayout:layout]);
 }
@@ -76,9 +76,9 @@
     //cell.photo = self.photos[indexPath.row];
     
     Artist *currentArtist = self.artists[indexPath.row];
-    NSLog(@"artistImage ... %@", currentArtist.artistImage);
-    NSLog(@"artistName ... %@", currentArtist.artistName);
-    NSLog(@"artistBio ... %@", currentArtist.artistBio);
+    //NSLog(@"artistImage ... %@", currentArtist.artistImage);
+    //NSLog(@"artistName ... %@", currentArtist.artistName);
+    //NSLog(@"artistBio ... %@", currentArtist.artistBio);
     
     cell.imageView.image = currentArtist.artistImage;
     //cell.label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 18.0f];
