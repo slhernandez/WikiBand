@@ -94,8 +94,8 @@
     [self.container setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds),totalHeight)];
     
     // add colored backgrounds for debugging
-    self.bioContainer.backgroundColor = [UIColor blueColor];
-    self.artistMetaContainer.backgroundColor = [UIColor redColor];
+    //self.bioContainer.backgroundColor = [UIColor blueColor];
+    //self.artistMetaContainer.backgroundColor = [UIColor redColor];
 
    
 }
@@ -210,17 +210,18 @@
 - (void)addConstraints {
     [self.view removeConstraints:self.view.constraints];
     
+    // Three main view containers.
     UIView *bioContainer = self.bioContainer;
     UIView *artistMetaContainer = self.artistMetaContainer;
     UIView *heroContainer = self.heroContainer;
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(bioContainer, artistMetaContainer, heroContainer);
+    NSDictionary *subViews = NSDictionaryOfVariableBindings(bioContainer, artistMetaContainer, heroContainer);
     
     NSArray *constraints = [NSLayoutConstraint
                             constraintsWithVisualFormat:@"V:|-[heroContainer]-10-[artistMetaContainer]-50-[bioContainer]"
                             options:0
                             metrics:nil
-                            views:views];
+                            views:subViews];
     
     //constraints = [constraints arrayByAddingObjectsFromArray:[NSLayoutConstraint
     //                                                          constraintsWithVisualFormat:@"V:|-10-[bioContainer]-10-|"
@@ -230,6 +231,49 @@
     
     
     [self.view addConstraints:constraints];
+    
+    // Applying constraints to labels within artistMetaContainer
+    
+    // UILabels that live within aritstMetaContainer.
+    /*UILabel *artistBirthName = self.artistBirthName;
+    UILabel *artistBornDate = self.artistBornDate;
+    UILabel *artistOccupation = self.artistOccupation;
+    UILabel *birthNameLabel = self.birthNameLabel;
+    UILabel *bornLabel = self.bornLabel;
+    UILabel *occupationsLabel = self.occupationsLabel;*/
+    
+    //artistMetaContainer.contentMode = UIViewContentModeScaleAspectFit;
+    
+    //birthNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    //bornLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    //occupationsLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //artistBirthName.translatesAutoresizingMaskIntoConstraints = NO;
+    //artistBornDate.translatesAutoresizingMaskIntoConstraints = NO;
+    //artistOccupation.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    /*NSDictionary *labelViews = NSDictionaryOfVariableBindings(artistBirthName, artistBornDate, artistOccupation, birthNameLabel, bornLabel, occupationsLabel);
+    
+    NSArray *labelConstraints = [NSLayoutConstraint
+                                constraintsWithVisualFormat:@"H:|-10-[birthNameLabel]-20-[artistBirthName]-10-|"
+                                options:0
+                                metrics:nil
+                                views:labelViews];
+    
+    labelConstraints = [labelConstraints arrayByAddingObjectsFromArray:[NSLayoutConstraint
+                                                                        constraintsWithVisualFormat:@"V:|-5-[birthNameLabel]-10-[bornLabel]-10-|"
+                                                                        options:0
+                                                                        metrics:nil
+                                                                        views:labelViews]];
+    
+    labelConstraints = [labelConstraints arrayByAddingObjectsFromArray:[NSLayoutConstraint
+                                                                        constraintsWithVisualFormat:@"V:|[bornLabel]-10-[occupationsLabel]-10-|"
+                                                                        options:0
+                                                                        metrics:nil
+                                                                        views:labelViews]];
+    
+    
+    [self.artistMetaContainer addConstraints:labelConstraints];*/
     
 }
 
