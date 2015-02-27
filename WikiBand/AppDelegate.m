@@ -20,6 +20,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    //NSString *wikiAPI = @"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Katy%20Perry";
+    //https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Madonna_%28entertainer%29
+    
     GridViewController *gridViewController = [[GridViewController alloc] init];
    
     

@@ -224,13 +224,14 @@
     NSDictionary *subViews = NSDictionaryOfVariableBindings(bioContainer, artistMetaContainer, heroContainer);
     
     NSArray *constraints = [NSLayoutConstraint
-                            constraintsWithVisualFormat:@"V:|-[heroContainer]-10-[artistMetaContainer]-50-[bioContainer]-15-|"
+                            constraintsWithVisualFormat:@"V:|-[heroContainer]-10-[artistMetaContainer]-50-[bioContainer]"
                             options:0
                             metrics:nil
                             views:subViews];
     
+    
     //constraints = [constraints arrayByAddingObjectsFromArray:[NSLayoutConstraint
-    //                                                          constraintsWithVisualFormat:@"V:|-10-[bioContainer]-10-|"
+    //                                                          constraintsWithVisualFormat:@"H:|-10-[bioContainer]-10-|"
     //                                                          options:0
     //                                                          metrics:nil
     //                                                          views:views]];
