@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GridViewController.h"
 #import "ArtistDetailsViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface AppDelegate ()
 @property (strong, nonatomic) NSDictionary *titleAttributes;
@@ -18,6 +19,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Let's see if we can get a list of artist from the media library
+    MPMediaQuery *fullList = [[MPMediaQuery alloc] init];
+    NSArray *mediaList = [fullList items];
+    for (MPMediaItem *song in mediaList) {
+        NSString *songTitle = [song valueForProperty:MPMediaItemPropertyTitle];
+        NSString *songArtist = [song valueForProperty:MPMediaItemPropertyArtist];
+        NSLog(@"%@\"%@\"", songArtist, songTitle);
+    }
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //NSString *wikiAPI = @"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Katy%20Perry";
@@ -42,8 +52,6 @@
     //[navigationController setNavigationBarHidden:YES animated:YES];
     //navigationBar.barStyle = UIBarStyleDefault;
     
-    
-    
     [navigationBar setTitleTextAttributes:self.titleAttributes];
     
     self.window.rootViewController = navigationController;
@@ -54,6 +62,8 @@
     //[application setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.window makeKeyAndVisible];
     return YES;
+    
+    
 }
 
 - (NSDictionary *)titleAttributes {
