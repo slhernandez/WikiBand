@@ -124,13 +124,13 @@
     
     if (_heroTitleAttributes == nil) {
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        paragraphStyle.lineSpacing = 10.0f;
+        paragraphStyle.lineSpacing = 20.0f;
         paragraphStyle.paragraphSpacing = 10.0f;
         
-        UIFont *font = [UIFont fontWithName:@"Whitney-Semibold" size:28.0f];
+        UIFont *font = [UIFont fontWithName:@"Whitney-Semibold" size:20.0f];
         NSShadow *shadow = [[NSShadow alloc] init];
         shadow.shadowBlurRadius = 2.0f;
-        shadow.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.50f];
+        shadow.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.30f];
         shadow.shadowOffset = CGSizeMake(1,1);
         _heroTitleAttributes = @{
                                  NSParagraphStyleAttributeName: paragraphStyle,
@@ -224,7 +224,7 @@
     NSDictionary *subViews = NSDictionaryOfVariableBindings(bioContainer, artistMetaContainer, heroContainer);
     
     NSArray *constraints = [NSLayoutConstraint
-                            constraintsWithVisualFormat:@"V:|-[heroContainer]-10-[artistMetaContainer]-50-[bioContainer]"
+                            constraintsWithVisualFormat:@"V:|-[heroContainer]-10-[artistMetaContainer]-50-[bioContainer]-15-|"
                             options:0
                             metrics:nil
                             views:subViews];
