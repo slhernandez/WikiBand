@@ -21,9 +21,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self addConstraints];
-    self.view.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1];
     
-    //self.view.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
+    self.view.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
     
     Artist *artist = self.artist;
     
@@ -283,6 +282,7 @@
     [self.artistMetaContainer addConstraints:labelConstraints];*/
     
 }
+
 
 - (void)viewDidLoad {
     //self.edgesForExtendedLayout = UIRectEdgeNone;

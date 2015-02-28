@@ -23,9 +23,9 @@
     MPMediaQuery *fullList = [[MPMediaQuery alloc] init];
     NSArray *mediaList = [fullList items];
     for (MPMediaItem *song in mediaList) {
-        NSString *songTitle = [song valueForProperty:MPMediaItemPropertyTitle];
+        //NSString *songTitle = [song valueForProperty:MPMediaItemPropertyTitle];
         NSString *songArtist = [song valueForProperty:MPMediaItemPropertyArtist];
-        NSLog(@"%@\"%@\"", songArtist, songTitle);
+        NSLog(@"songArtist %@", songArtist);
     }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
