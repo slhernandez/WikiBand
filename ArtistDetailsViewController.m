@@ -22,7 +22,7 @@
     [super viewWillAppear:animated];
     [self addConstraints];
     
-    self.view.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
+    self.view.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
     
     Artist *artist = self.artist;
     
@@ -53,6 +53,7 @@
     //self.artistMetaContainer.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1];
     self.artistMetaContainer.backgroundColor = [UIColor whiteColor];
     
+    
     NSAttributedString *birthLabelAttributed = [[NSAttributedString alloc] initWithString:self.birthNameLabel.text attributes:[self labelNameAttributes]];
     self.birthNameLabel.attributedText = birthLabelAttributed;
     
@@ -74,8 +75,8 @@
     [self.artistOccupation sizeToFit];
     
     
-    self.bioContainer.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
-    self.artistBio.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]; /*#fafafa*/
+    self.bioContainer.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
+    self.artistBio.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
     
     // Create and layout the close button.
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -99,7 +100,6 @@
     //self.bioContainer.backgroundColor = [UIColor blueColor];
     //self.artistMetaContainer.backgroundColor = [UIColor redColor];
 
-   
 }
 
 - (BOOL) checkFont:(NSString *)fontName {
