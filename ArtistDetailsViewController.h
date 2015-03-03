@@ -10,7 +10,7 @@
 
 @class Artist;
 
-@interface ArtistDetailsViewController : UIViewController
+@interface ArtistDetailsViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, strong) Artist *artist;
 @property (nonatomic, weak) IBOutlet UIImageView *artistDetailImage;

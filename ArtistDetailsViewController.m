@@ -22,6 +22,8 @@
     [super viewWillAppear:animated];
     [self addConstraints];
     
+    self.container.delegate = self;
+    
     self.view.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
     
     Artist *artist = self.artist;
@@ -210,6 +212,24 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    CGFloat offset = self.container.contentOffset.y;
+    CATransform3D headerTransform = CATransform3DIdentity;
+    
+    if (offset < 0) {
+        CGFloat headerScaleFactor = -(offset)/self.heroContainer.bounds.size.height;
+        CGFloat headerSizevariation = ((self.heroContainer.bounds.size.height * (1.0 + headerScaleFactor)) - self.heroContainer.bounds.size.height)/2.0;
+        headerTransform = CATransform3DTranslate(headerTransform, 1, headerSizevariation, 0);
+        headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0);
+        self.heroContainer.layer.transform = headerTransform;
+        
+    } else {
+        NSLog(@"Scoll up/down");
+    }
+    
 }
 
 - (void)addConstraints {
