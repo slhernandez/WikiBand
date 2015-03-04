@@ -23,6 +23,7 @@
     [self addConstraints];
     
     self.container.delegate = self;
+    self.container.clipsToBounds = YES;
     
     self.view.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
     
@@ -34,6 +35,8 @@
     self.artistLabel.adjustsFontSizeToFitWidth = YES;
     
     self.artistDetailImage.image = artist.artistDetailImage;
+    self.artistDetailImage.clipsToBounds = YES;
+    self.artistDetailImage.contentMode = UIViewContentModeScaleAspectFill;
     
     // Add Image gradient to hero layer
     CAGradientLayer *gradient = [CAGradientLayer layer];
