@@ -25,4 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *occupationsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *occupationsValue;
 
+@property (weak, nonatomic) IBOutlet UIView *bioContainerView;
+@property (weak, nonatomic) IBOutlet UITextView *bioTextView;
+
 @end

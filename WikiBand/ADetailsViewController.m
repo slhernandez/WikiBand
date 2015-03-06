@@ -21,6 +21,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // SETUP background color for the parent view
+    self.view.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
+    
     // SETUP SCROLL VIEW ACTIONS
     // -----------------------------
     self.detailsScrollView.delegate = self;
@@ -87,6 +90,18 @@
     
     [self.occupationsValue sizeToFit];
     
+    // SETUP the BIOGRAPHY paragraph text
+    // -----------------------------------
+    self.bioContainerView.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
+    self.bioTextView.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
+    
+    NSAttributedString *artistBioAttributed = [[NSAttributedString alloc] initWithString:artist.artistBio attributes:[self paragraphAttributes]];
+    
+    self.bioTextView.attributedText = artistBioAttributed;
+    self.bioTextView.scrollEnabled = NO;
+    // Call this function to dynamically calculate it's own height.
+    [self textViewDidChange:self.bioTextView];
+    
 }
 
 - (IBAction)close:(id)sender {
@@ -126,6 +141,22 @@
     
 }
 
+// Setup paragraph attributes for Biography text.
+// -----------------------------------------------
+- (NSDictionary *)paragraphAttributes {
+    UIFont *paragraphFont = [UIFont fontWithName:@"Whitney-Book" size:15];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.firstLineHeadIndent = 10.0f;
+    paragraphStyle.lineSpacing = 10.0f;
+    paragraphStyle.paragraphSpacing = 10.0f;
+    
+    return @{ NSParagraphStyleAttributeName: paragraphStyle,
+              NSFontAttributeName: paragraphFont
+              };
+}
+
+// Setup value name attributes for the artist meta data.
+// -----------------------------------------------------
 - (NSDictionary *)valueNameAttributes {
     if (_valueNameAttributes == nil) {
         UIFont *labelFont = [UIFont fontWithName:@"Whitney-Book" size:14];
@@ -140,6 +171,17 @@
     
     return _valueNameAttributes;
     
+}
+
+// Dynamically calculate the height of the bioTextView.
+// ----------------------------------------------------
+- (void)textViewDidChange:(UITextView *)textView
+{
+    CGFloat fixedWidth = textView.frame.size.width;
+    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+    CGRect newFrame = textView.frame;
+    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+    textView.frame = newFrame;
 }
 
 - (void)viewDidLoad {

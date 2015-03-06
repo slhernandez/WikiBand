@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ADetailsViewController">
             <connections>
                 <outlet property="artistHeroImage" destination="G7g-6d-Kfu" id="E6c-va-stn"/>
+                <outlet property="bioContainerView" destination="ClI-aM-gmx" id="W4M-CM-MXI"/>
+                <outlet property="bioTextView" destination="F7p-38-dqg" id="U5y-z0-htt"/>
                 <outlet property="birthNameLabel" destination="MNi-rS-yVG" id="Tky-gH-quv"/>
                 <outlet property="birthNameValue" destination="nGP-KX-tZi" id="1Sl-fi-maL"/>
                 <outlet property="bornDateLabel" destination="0W1-w9-kZb" id="KKD-MG-8ej"/>
@@ -76,6 +78,19 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ClI-aM-gmx">
+                            <rect key="frame" x="0.0" y="400" width="320" height="284"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7p-38-dqg">
+                                    <rect key="frame" x="23" y="0.0" width="275" height="200"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
