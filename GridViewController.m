@@ -9,7 +9,7 @@
 #import "GridViewController.h"
 #import "ArtistCell.h"
 #import "ArtistDetailsViewController.h"
-#import "DetailsViewController.h"
+#import "ADetailsViewController.h"
 #import "PresentDetailTransition.h"
 #import "DismissDetailTransition.h"
 #import "Artist.h"
@@ -97,22 +97,23 @@
     // Get a pointer to an object that represents the app bundle
     NSBundle *appBundle = [NSBundle mainBundle];
     // Look in the appBundle for the file ArtistDetailsViewController.xib
-    ArtistDetailsViewController *advc = [[ArtistDetailsViewController alloc] initWithNibName:@"ArtistDetailsViewController" bundle:appBundle];
+    //ArtistDetailsViewController *advc = [[ArtistDetailsViewController alloc] initWithNibName:@"ArtistDetailsViewController" bundle:appBundle];
     
-    //DetailsViewController *newDetails = [[DetailsViewController alloc] init];
+    ADetailsViewController *aaDetails = [[ADetailsViewController alloc] initWithNibName:@"ADetailsViewController" bundle:appBundle];
     
     Artist *selectedArtist = self.artists[indexPath.row];
     
-    //newDetails.artist = selectedArtist;
-    //newDetails.modalPresentationStyle = UIModalPresentationCustom;
-    //newDetails.transitioningDelegate = self;
-    //[self presentViewController:newDetails animated:YES completion:nil];
+    aaDetails.artist = selectedArtist;
+    aaDetails.modalPresentationStyle = UIModalPresentationCustom;
+    aaDetails.transitioningDelegate = self;
+    [self presentViewController:aaDetails animated:YES completion:nil];
     
-    advc.artist = selectedArtist;
-    advc.modalPresentationStyle = UIModalPresentationCustom;
-    advc.transitioningDelegate = self;
-    [self presentViewController:advc animated:YES completion: nil];
-    [self.navigationController pushViewController:advc animated:YES];
+    
+    //advc.artist = selectedArtist;
+    //advc.modalPresentationStyle = UIModalPresentationCustom;
+    //advc.transitioningDelegate = self;
+    //[self presentViewController:advc animated:YES completion: nil];
+    //[self.navigationController pushViewController:advc animated:YES];
     
 }
 

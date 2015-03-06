@@ -14,6 +14,8 @@
 		E7A4A9361A915EC700ACE036 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A4A9351A915EC700ACE036 /* QuartzCore.framework */; };
 		E95DDB5F1A9CA19000C6560D /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E95DDB5E1A9CA19000C6560D /* UIButton+Extensions.m */; };
 		E95DDB611AA0A3E400C6560D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E95DDB601AA0A3E400C6560D /* MediaPlayer.framework */; };
+		E960D6151AA946E500FA22AE /* ADetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E960D6131AA946E500FA22AE /* ADetailsViewController.m */; };
+		E960D6161AA946E500FA22AE /* ADetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E960D6141AA946E500FA22AE /* ADetailsViewController.xib */; };
 		E9A77FAB1A99283C0020DB2E /* BebasNeue-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9A77FAA1A99283C0020DB2E /* BebasNeue-Bold.otf */; };
 		E9B8FBD419A0033D00607236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B8FBD319A0033D00607236 /* Foundation.framework */; };
 		E9B8FBD619A0033D00607236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B8FBD519A0033D00607236 /* CoreGraphics.framework */; };
@@ -57,6 +59,9 @@
 		E95DDB5D1A9CA19000C6560D /* UIButton+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extensions.h"; sourceTree = "<group>"; };
 		E95DDB5E1A9CA19000C6560D /* UIButton+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extensions.m"; sourceTree = "<group>"; };
 		E95DDB601AA0A3E400C6560D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		E960D6121AA946E500FA22AE /* ADetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADetailsViewController.h; sourceTree = "<group>"; };
+		E960D6131AA946E500FA22AE /* ADetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADetailsViewController.m; sourceTree = "<group>"; };
+		E960D6141AA946E500FA22AE /* ADetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADetailsViewController.xib; sourceTree = "<group>"; };
 		E9A77FAA1A99283C0020DB2E /* BebasNeue-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BebasNeue-Bold.otf"; path = "../BebasNeue-Bold.otf"; sourceTree = "<group>"; };
 		E9B8FBD019A0033D00607236 /* WikiBand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiBand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B8FBD319A0033D00607236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -161,6 +166,9 @@
 				E9B8FBE319A0033D00607236 /* AppDelegate.m */,
 				E9B8FC0219A005B000607236 /* GridViewController.h */,
 				E9B8FC0319A005B000607236 /* GridViewController.m */,
+				E960D6121AA946E500FA22AE /* ADetailsViewController.h */,
+				E960D6131AA946E500FA22AE /* ADetailsViewController.m */,
+				E960D6141AA946E500FA22AE /* ADetailsViewController.xib */,
 				E9B8FBE519A0033D00607236 /* Images.xcassets */,
 				E9B8FBDA19A0033D00607236 /* Supporting Files */,
 				E9B8FC0519A00E9D00607236 /* ArtistCell.h */,
@@ -288,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E750D4E31A9A7B6E0004ADD7 /* Whitney-Semibold-Bas.otf in Resources */,
+				E960D6161AA946E500FA22AE /* ADetailsViewController.xib in Resources */,
 				E9A77FAB1A99283C0020DB2E /* BebasNeue-Bold.otf in Resources */,
 				E9D6236B19A129C5002A05A4 /* ArtistDetailsViewController.xib in Resources */,
 				E9B8FBDE19A0033D00607236 /* InfoPlist.strings in Resources */,
@@ -313,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9B8FBE419A0033D00607236 /* AppDelegate.m in Sources */,
+				E960D6151AA946E500FA22AE /* ADetailsViewController.m in Sources */,
 				E7A4A9341A914AD100ACE036 /* DetailsViewController.m in Sources */,
 				E9B8FC0419A005B000607236 /* GridViewController.m in Sources */,
 				E9D6236919A1295B002A05A4 /* ArtistDetailsViewController.m in Sources */,
