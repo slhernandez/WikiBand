@@ -11,7 +11,9 @@
 #import "UIButton+Extensions.h"
 
 @interface ADetailsViewController ()
-
+@property (nonatomic, strong) NSDictionary *heroTitleAttributes;
+@property (nonatomic, strong) NSDictionary *labelNameAttributes;
+@property (nonatomic, strong) NSDictionary *valueNameAttributes;
 @end
 
 @implementation ADetailsViewController
@@ -49,6 +51,7 @@
     
     // SETUP add the close button
     // ---------------------------
+    
     // Create and layout the close button.
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [closeButton addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
@@ -58,6 +61,31 @@
     [self.view addSubview:closeButton];
     
     [self.detailsScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds),600.0f)];
+    
+    // SETUP the Artist Meta Summary Data
+    // -----------------------------------
+    
+    self.metaContainerView.backgroundColor = [UIColor whiteColor];
+    
+    NSAttributedString *birthLabelAttributed = [[NSAttributedString alloc] initWithString:self.birthNameLabel.text attributes:[self labelNameAttributes]];
+    self.birthNameLabel.attributedText = birthLabelAttributed;
+    
+    NSAttributedString *bornDateLabelAttributed = [[NSAttributedString alloc] initWithString:self.bornDateLabel.text attributes:[self labelNameAttributes]];
+    self.bornDateLabel.attributedText = bornDateLabelAttributed;
+    
+    NSAttributedString *occupationsLabelAttributed = [[NSAttributedString alloc] initWithString:self.occupationsLabel.text attributes:[self labelNameAttributes]];
+    self.occupationsLabel.attributedText = occupationsLabelAttributed;
+    
+    NSAttributedString *birthNameValueAttributed = [[NSAttributedString alloc] initWithString:artist.artistBirthName attributes:[self valueNameAttributes]];
+    self.birthNameValue.attributedText = birthNameValueAttributed;
+    
+    NSAttributedString *bornDateValueAttributed = [[NSAttributedString alloc] initWithString:artist.artistBornDate attributes:[self valueNameAttributes]];
+    self.bornDateValue.attributedText = bornDateValueAttributed;
+    
+    NSAttributedString *occupationsValueAttributed = [[NSAttributedString alloc] initWithString:artist.artistOccupation attributes:[self valueNameAttributes]];
+    self.occupationsValue.attributedText = occupationsValueAttributed;
+    
+    [self.occupationsValue sizeToFit];
     
 }
 
@@ -80,9 +108,39 @@
     } else {
         NSLog(@"Scoll up/down");
     }
+}
+
+// Meta Data label and value attributes setup.
+// Setup nice typography settings.
+// --------------------------------------------
+- (NSDictionary *)labelNameAttributes {
+    if (_labelNameAttributes == nil) {
+        UIFont *labelFont = [UIFont fontWithName:@"Whitney-Semibold" size:14];
+        _labelNameAttributes = @{
+                                 NSFontAttributeName: labelFont,
+                                 NSForegroundColorAttributeName: [UIColor colorWithRed:0.482 green:0.533 blue:0.58 alpha:1]
+                                 };
+    }
+    
+    return _labelNameAttributes;
     
 }
 
+- (NSDictionary *)valueNameAttributes {
+    if (_valueNameAttributes == nil) {
+        UIFont *labelFont = [UIFont fontWithName:@"Whitney-Book" size:14];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = 5.0f;
+        _valueNameAttributes = @{
+                                 NSParagraphStyleAttributeName: paragraphStyle,
+                                 NSFontAttributeName: labelFont,
+                                 NSForegroundColorAttributeName: [UIColor colorWithRed:0.482 green:0.533 blue:0.58 alpha:1]
+                                 };
+    }
+    
+    return _valueNameAttributes;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
