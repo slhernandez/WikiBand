@@ -63,8 +63,6 @@
     [closeButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
     [self.view addSubview:closeButton];
     
-    [self.detailsScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds),600.0f)];
-    
     // SETUP the Artist Meta Summary Data
     // -----------------------------------
     
@@ -87,7 +85,6 @@
     
     NSAttributedString *occupationsValueAttributed = [[NSAttributedString alloc] initWithString:artist.artistOccupation attributes:[self valueNameAttributes]];
     self.occupationsValue.attributedText = occupationsValueAttributed;
-    
     [self.occupationsValue sizeToFit];
     
     // SETUP the BIOGRAPHY paragraph text
@@ -102,13 +99,23 @@
     // Call this function to dynamically calculate it's own height.
     [self textViewDidChange:self.bioTextView];
     
+    // CALCULATE the heights of the three sub views that make up the details page.
+    // ---------------------------------------------------------------------------
+    NSInteger heroHeight = self.heroContainerView.frame.size.height;
+    NSInteger artistMetaHeight = self.metaContainerView.frame.size.height;
+    NSInteger bioHeight = self.bioContainerView.frame.size.height;
+    NSInteger totalHeight = heroHeight + artistMetaHeight + bioHeight;
+    
+    // Now adjust the content size for the details scroll view (UIScrollView)
+    [self.detailsScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds),totalHeight)];
+    
 }
 
 - (IBAction)close:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+/*- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset = self.detailsScrollView.contentOffset.y;
     CATransform3D headerTransform = CATransform3DIdentity;
     NSLog(@"offset... %f", offset);
@@ -123,7 +130,7 @@
     } else {
         NSLog(@"Scoll up/down");
     }
-}
+}*/
 
 // Meta Data label and value attributes setup.
 // Setup nice typography settings.
