@@ -89,6 +89,7 @@
     NSAttributedString *occupationsValueAttributed = [[NSAttributedString alloc] initWithString:artist.artistOccupation attributes:[self valueNameAttributes]];
     self.occupationsValue.attributedText = occupationsValueAttributed;
     [self.occupationsValue sizeToFit];
+    [self.occupationsValue lineBreakMode];
     
     // SETUP the BIOGRAPHY paragraph text
     // -----------------------------------
@@ -194,6 +195,15 @@
     textView.frame = newFrame;
 }
 
+// This is supposed to calculate the height of an attributed string based on width size.
+// -----------------------------------------------------------------------------------
+- (CGFloat)textViewHeightForAttributedText: (NSAttributedString*)text andWidth: (CGFloat)width {
+    UITextView *calculationView = [[UITextView alloc] init];
+    [calculationView setAttributedText:text];
+    CGSize size = [calculationView sizeThatFits:CGSizeMake(width, FLT_MAX)];
+    return size.height;
+}
+
 // VISUAL FORMAT LANGUAGE - Constraints for the 3 sub views (Header, Meta, Bio)
 - (void)addConstraints {
     [self.view removeConstraints:self.view.constraints];
@@ -216,7 +226,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    //self.edgesForExtendedLayout = UIRectEdgeTop;
 }
 
 - (void)didReceiveMemoryWarning {
