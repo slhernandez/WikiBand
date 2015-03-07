@@ -21,6 +21,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // Add the customized contraints
+    //[self addConstraints];
+    
     // SETUP background color for the parent view
     self.view.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
     
@@ -189,6 +192,26 @@
     CGRect newFrame = textView.frame;
     newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
     textView.frame = newFrame;
+}
+
+// VISUAL FORMAT LANGUAGE - Constraints for the 3 sub views (Header, Meta, Bio)
+- (void)addConstraints {
+    [self.view removeConstraints:self.view.constraints];
+    
+    // Three sub views that will have thier constraints altered.
+    UIView *heroContainer = self.heroContainerView;
+    UIView *metaContainer = self.metaContainerView;
+    UIView *bioContainer = self.bioContainerView;
+    
+    NSDictionary *subViews = NSDictionaryOfVariableBindings(bioContainer, metaContainer, heroContainer);
+    
+    NSArray *constraints = [NSLayoutConstraint
+                            constraintsWithVisualFormat:@"V:|-[heroContainer]-10-[metaContainer]-50-[bioContainer]"
+                            options:0
+                            metrics:nil
+                            views:subViews];
+
+     [self.view addConstraints:constraints];
 }
 
 - (void)viewDidLoad {
