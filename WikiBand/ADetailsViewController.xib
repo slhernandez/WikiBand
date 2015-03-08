@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ADetailsViewController">
             <connections>
-                <outlet property="artistHeroImage" destination="G7g-6d-Kfu" id="E6c-va-stn"/>
                 <outlet property="bioContainerView" destination="ClI-aM-gmx" id="W4M-CM-MXI"/>
                 <outlet property="bioTextView" destination="F7p-38-dqg" id="U5y-z0-htt"/>
                 <outlet property="birthNameLabel" destination="MNi-rS-yVG" id="Tky-gH-quv"/>
@@ -15,7 +14,8 @@
                 <outlet property="bornDateLabel" destination="0W1-w9-kZb" id="KKD-MG-8ej"/>
                 <outlet property="bornDateValue" destination="nqN-9f-tRr" id="3kW-cY-CYb"/>
                 <outlet property="detailsScrollView" destination="r6r-M6-T3n" id="KXd-sJ-eV8"/>
-                <outlet property="heroContainerView" destination="cpy-Q0-xC5" id="Y7C-F8-hGA"/>
+                <outlet property="header" destination="gVp-QQ-Q95" id="hU6-hq-VMT"/>
+                <outlet property="heroImageView" destination="L1k-93-8ys" id="HuL-UU-HZQ"/>
                 <outlet property="metaContainerView" destination="l0C-Xq-m4V" id="eQD-Qx-e8H"/>
                 <outlet property="occupationsLabel" destination="LU7-7w-Fme" id="RCb-kd-SvL"/>
                 <outlet property="occupationsValue" destination="2ru-vk-nh6" id="bmy-0k-DIq"/>
@@ -27,20 +27,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVp-QQ-Q95">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1k-93-8ys">
+                            <rect key="frame" x="0.0" y="0.0" width="319" height="250"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="ukb-7q-Y9a"/>
+                    </constraints>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6r-M6-T3n">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cpy-Q0-xC5">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="285"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G7g-6d-Kfu">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="285"/>
-                                </imageView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0C-Xq-m4V">
-                            <rect key="frame" x="0.0" y="285" width="320" height="115"/>
+                        <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0C-Xq-m4V">
+                            <rect key="frame" x="0.0" y="265" width="320" height="115"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Birth Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNi-rS-yVG">
                                     <rect key="frame" x="8" y="8" width="92" height="21"/>
@@ -60,17 +63,10 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGP-KX-tZi">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Value" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGP-KX-tZi">
                                     <rect key="frame" x="114" y="8" width="198" height="21"/>
-                                    <attributedString key="attributedText">
-                                        <fragment content="Name Value">
-                                            <attributes>
-                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqN-9f-tRr">
@@ -102,11 +98,11 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ClI-aM-gmx">
-                            <rect key="frame" x="0.0" y="400" width="320" height="284"/>
+                        <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ClI-aM-gmx">
+                            <rect key="frame" x="0.0" y="380" width="320" height="373"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="275" placeholderIntrinsicHeight="infinite" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7p-38-dqg">
-                                    <rect key="frame" x="23" y="0.0" width="275" height="200"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7p-38-dqg">
+                                    <rect key="frame" x="23" y="8" width="275" height="200"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <attributedString key="attributedText">
                                         <fragment>
@@ -129,8 +125,12 @@
             <constraints>
                 <constraint firstItem="r6r-M6-T3n" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Aiw-0u-oW4"/>
                 <constraint firstAttribute="trailing" secondItem="r6r-M6-T3n" secondAttribute="trailing" id="ENG-jU-aex"/>
+                <constraint firstItem="gVp-QQ-Q95" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="H0d-3p-m1I"/>
                 <constraint firstItem="r6r-M6-T3n" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Q65-5d-9lk"/>
+                <constraint firstAttribute="trailing" secondItem="gVp-QQ-Q95" secondAttribute="trailing" id="QJs-EA-Cdg"/>
+                <constraint firstItem="gVp-QQ-Q95" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SN3-od-BfR"/>
                 <constraint firstAttribute="bottom" secondItem="r6r-M6-T3n" secondAttribute="bottom" id="m3O-ch-Fqu"/>
+                <constraint firstItem="gVp-QQ-Q95" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zBo-tP-oBf"/>
             </constraints>
             <point key="canvasLocation" x="379" y="435"/>
         </view>

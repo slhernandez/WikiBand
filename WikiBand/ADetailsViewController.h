@@ -11,11 +11,12 @@
 @class Artist;
 
 @interface ADetailsViewController : UIViewController <UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *header;
 
 @property (nonatomic, strong) Artist *artist;
 @property (weak, nonatomic) IBOutlet UIScrollView *detailsScrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *artistHeroImage;
-@property (weak, nonatomic) IBOutlet UIView *heroContainerView;
+@property (weak, nonatomic) IBOutlet UIImageView *heroImageView;
+
 
 @property (weak, nonatomic) IBOutlet UIView *metaContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *birthNameLabel;

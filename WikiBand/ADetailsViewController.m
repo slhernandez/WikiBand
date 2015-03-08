@@ -21,8 +21,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // Add the customized contraints
-    //[self addConstraints];
+  
     
     // SETUP background color for the parent view
     self.view.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
@@ -34,6 +33,8 @@
     self.detailsScrollView.bounces = YES;
     
     
+    
+    
     // Setup artist class for artist contents
     // ---------------------------------------
     Artist *artist = self.artist;
@@ -41,18 +42,20 @@
     
     // SETUP the artist image view
     // -----------------------------
-    self.artistHeroImage.image = artist.artistDetailImage;
-    self.artistHeroImage.contentMode = UIViewContentModeScaleAspectFill;
+    //self.artistHeroImage.image = artist.artistDetailImage;
+    //self.artistHeroImage.contentMode = UIViewContentModeScaleAspectFill;
     
+    self.heroImageView.image = artist.artistDetailImage;
+    self.heroImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     // Add image gradient to hero layer
     // ---------------------------------
-    CAGradientLayer *gradient = [CAGradientLayer layer];
+    /*CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.artistHeroImage.bounds;
     gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0] CGColor],
                         (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2] CGColor],
                         (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6] CGColor]];
-    [self.artistHeroImage.layer insertSublayer:gradient atIndex:0];
+    [self.artistHeroImage.layer insertSublayer:gradient atIndex:0];*/
     
     
     // SETUP add the close button
@@ -89,7 +92,7 @@
     NSAttributedString *occupationsValueAttributed = [[NSAttributedString alloc] initWithString:artist.artistOccupation attributes:[self valueNameAttributes]];
     self.occupationsValue.attributedText = occupationsValueAttributed;
     [self.occupationsValue sizeToFit];
-    [self.occupationsValue lineBreakMode];
+    //[self.occupationsValue lineBreakMode];
     
     // SETUP the BIOGRAPHY paragraph text
     // -----------------------------------
@@ -105,13 +108,17 @@
     
     // CALCULATE the heights of the three sub views that make up the details page.
     // ---------------------------------------------------------------------------
-    NSInteger heroHeight = self.heroContainerView.frame.size.height;
+    //NSInteger heroHeight = self.heroContainerView.frame.size.height;
     NSInteger artistMetaHeight = self.metaContainerView.frame.size.height;
     NSInteger bioHeight = self.bioContainerView.frame.size.height;
-    NSInteger totalHeight = heroHeight + artistMetaHeight + bioHeight;
+    NSInteger headerHeight = self.header.frame.size.height;
+    NSInteger totalHeight = headerHeight + artistMetaHeight + bioHeight;
     
     // Now adjust the content size for the details scroll view (UIScrollView)
     [self.detailsScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds),totalHeight)];
+    
+    // Add the customized contraints
+    //[self addConstraints];
     
 }
 
@@ -119,22 +126,23 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset = self.detailsScrollView.contentOffset.y;
     CATransform3D headerTransform = CATransform3DIdentity;
     NSLog(@"offset... %f", offset);
     
     if (offset < 0) {
         NSLog(@"pulling down");
-        CGFloat headerScaleFactor = -(offset)/self.detailsScrollView.bounds.size.height;
-        CGFloat headerSizevariation = ((self.detailsScrollView.bounds.size.height * (1.0 + headerScaleFactor)) - self.detailsScrollView.bounds.size.height)/2.0;
+        CGFloat headerScaleFactor = -(offset)/self.header.bounds.size.height;
+        CGFloat headerSizevariation = ((self.header.bounds.size.height * (1.0 + headerScaleFactor)) - self.header.bounds.size.height)/2.0;
         headerTransform = CATransform3DTranslate(headerTransform, 1, headerSizevariation, 0);
         headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0);
-        self.detailsScrollView.layer.transform = headerTransform;
+        //self.detailsScrollView.layer.transform = headerTransform;
+        self.header.layer.transform = headerTransform;
     } else {
         NSLog(@"Scoll up/down");
     }
-}*/
+}
 
 // Meta Data label and value attributes setup.
 // Setup nice typography settings.
@@ -205,15 +213,16 @@
 }
 
 // VISUAL FORMAT LANGUAGE - Constraints for the 3 sub views (Header, Meta, Bio)
-- (void)addConstraints {
+/*- (void)addConstraints {
     [self.view removeConstraints:self.view.constraints];
     
     // Three sub views that will have thier constraints altered.
+    UIScrollView *scrollView = self.detailsScrollView;
     UIView *heroContainer = self.heroContainerView;
     UIView *metaContainer = self.metaContainerView;
     UIView *bioContainer = self.bioContainerView;
     
-    NSDictionary *subViews = NSDictionaryOfVariableBindings(bioContainer, metaContainer, heroContainer);
+    NSDictionary *subViews = NSDictionaryOfVariableBindings(scrollView, bioContainer, metaContainer, heroContainer);
     
     NSArray *constraints = [NSLayoutConstraint
                             constraintsWithVisualFormat:@"V:|-[heroContainer]-10-[metaContainer]-50-[bioContainer]"
@@ -222,7 +231,7 @@
                             views:subViews];
 
      [self.view addConstraints:constraints];
-}
+}*/
 
 - (void)viewDidLoad {
     [super viewDidLoad];
