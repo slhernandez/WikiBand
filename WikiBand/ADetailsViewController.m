@@ -10,7 +10,10 @@
 #import "Artist.h"
 #import "UIButton+Extensions.h"
 
-const CGFloat offset_HeaderStop = 40.0;
+const CGFloat offset_HeaderStop = 20.0;
+const CGFloat offset_B_LabelHeader = 35.0;
+const CGFloat distance_W_LabelHeader = 35.0;
+
 
 @interface ADetailsViewController ()
 @property (nonatomic, strong) NSDictionary *heroTitleAttributes;
@@ -113,15 +116,21 @@ const CGFloat offset_HeaderStop = 40.0;
     // ---------------------------------------------------------------------------
     //NSInteger heroHeight = self.heroContainerView.frame.size.height;
     NSInteger artistMetaHeight = self.metaContainerView.frame.size.height;
-    NSInteger bioHeight = self.bioContainerView.frame.size.height;
+    NSLog(@"artistMetaHeight %li", artistMetaHeight);
+    NSInteger bioHeight = self.bioTextView.frame.size.height;
+    NSLog(@"bioHeight %li", bioHeight);
     NSInteger headerHeight = self.header.frame.size.height;
+    NSLog(@"headerHeight %li", headerHeight);
+    NSInteger detailImageHeight = self.heroImageView.frame.size.height;
+    NSLog(@"detailImageHeight %li", detailImageHeight);
     NSInteger totalHeight = headerHeight + artistMetaHeight + bioHeight;
+    NSLog(@"totalHeight %li", totalHeight);
     
     // Now adjust the content size for the details scroll view (UIScrollView)
     [self.detailsScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds),totalHeight)];
     
     // Add the customized contraints
-    [self addConstraints];
+    //[self addConstraints];
     
 }
 
@@ -132,10 +141,10 @@ const CGFloat offset_HeaderStop = 40.0;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset = self.detailsScrollView.contentOffset.y;
     CATransform3D headerTransform = CATransform3DIdentity;
-    NSLog(@"offset... %f", offset);
+    //NSLog(@"offset... %f", offset);
     
     if (offset < 0) {
-        NSLog(@"pulling down");
+        //NSLog(@"pulling down");
         CGFloat headerScaleFactor = -(offset)/self.header.bounds.size.height;
         CGFloat headerSizevariation = ((self.header.bounds.size.height * (1.0 + headerScaleFactor)) - self.header.bounds.size.height)/2.0;
         headerTransform = CATransform3DTranslate(headerTransform, 1, headerSizevariation, 0);
@@ -143,8 +152,16 @@ const CGFloat offset_HeaderStop = 40.0;
         //self.detailsScrollView.layer.transform = headerTransform;
         self.header.layer.transform = headerTransform;
     } else {
-        NSLog(@"Scoll up/down");
+        //NSLog(@"Scoll up/down");
+        
+        // Header ------------------
         headerTransform = CATransform3DTranslate(headerTransform, 0, fmax(-offset_HeaderStop, -offset), 0);
+        
+        // Label -------------------
+        CATransform3D labelTransform = CATransform3DMakeTranslation(0, fmax(-distance_W_LabelHeader, offset_B_LabelHeader - offset), 0);
+        self.detailsTitle.layer.transform = labelTransform;
+        
+        
     }
 }
 
