@@ -10,6 +10,8 @@
 #import "Artist.h"
 #import "UIButton+Extensions.h"
 
+const CGFloat offset_HeaderStop = 40.0;
+
 @interface ADetailsViewController ()
 @property (nonatomic, strong) NSDictionary *heroTitleAttributes;
 @property (nonatomic, strong) NSDictionary *labelNameAttributes;
@@ -21,8 +23,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-  
-    
     // SETUP background color for the parent view
     self.view.backgroundColor = [UIColor colorWithRed:0.945 green:0.949 blue:0.953 alpha:1]; /*#f1f2f3*/
     
@@ -32,31 +32,34 @@
     self.detailsScrollView.clipsToBounds = self;
     self.detailsScrollView.bounces = YES;
     
-    
-    
-    
     // Setup artist class for artist contents
     // ---------------------------------------
     Artist *artist = self.artist;
     
-    
     // SETUP the artist image view
     // -----------------------------
-    //self.artistHeroImage.image = artist.artistDetailImage;
-    //self.artistHeroImage.contentMode = UIViewContentModeScaleAspectFill;
-    
     self.heroImageView.image = artist.artistDetailImage;
     self.heroImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     // Add image gradient to hero layer
     // ---------------------------------
-    /*CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = self.artistHeroImage.bounds;
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.heroImageView.bounds;
     gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0] CGColor],
                         (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2] CGColor],
                         (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6] CGColor]];
-    [self.artistHeroImage.layer insertSublayer:gradient atIndex:0];*/
+    [self.heroImageView.layer insertSublayer:gradient atIndex:0];
     
+    // SETUP Artist Title
+    // -------------------
+    NSAttributedString *artistNameAttributed = [[NSAttributedString alloc]
+                                                initWithString:[artist.artistName uppercaseString]
+                                                attributes:[self heroTitleAttributes]];
+    
+    self.detailsTitle.attributedText = artistNameAttributed;
+    self.detailsTitle.textAlignment = NSTextAlignmentCenter;
+    self.detailsTitle.adjustsFontSizeToFitWidth = YES;
+
     
     // SETUP add the close button
     // ---------------------------
@@ -118,7 +121,7 @@
     [self.detailsScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds),totalHeight)];
     
     // Add the customized contraints
-    //[self addConstraints];
+    [self addConstraints];
     
 }
 
@@ -141,6 +144,7 @@
         self.header.layer.transform = headerTransform;
     } else {
         NSLog(@"Scoll up/down");
+        headerTransform = CATransform3DTranslate(headerTransform, 0, fmax(-offset_HeaderStop, -offset), 0);
     }
 }
 
@@ -192,6 +196,31 @@
     
 }
 
+- (NSDictionary *)heroTitleAttributes {
+    
+    if (_heroTitleAttributes == nil) {
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = 20.0f;
+        paragraphStyle.paragraphSpacing = 10.0f;
+        
+        UIFont *font = [UIFont fontWithName:@"Whitney-Semibold" size:20.0f];
+        NSShadow *shadow = [[NSShadow alloc] init];
+        shadow.shadowBlurRadius = 2.0f;
+        shadow.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.30f];
+        shadow.shadowOffset = CGSizeMake(1,1);
+        _heroTitleAttributes = @{
+                                 NSParagraphStyleAttributeName: paragraphStyle,
+                                 NSShadowAttributeName: shadow,
+                                 NSFontAttributeName: font,
+                                 NSForegroundColorAttributeName: [UIColor whiteColor],
+                                 NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)
+                                 };
+        
+    }
+    
+    return _heroTitleAttributes;
+}
+
 // Dynamically calculate the height of the bioTextView.
 // ----------------------------------------------------
 - (void)textViewDidChange:(UITextView *)textView
@@ -213,25 +242,26 @@
 }
 
 // VISUAL FORMAT LANGUAGE - Constraints for the 3 sub views (Header, Meta, Bio)
-/*- (void)addConstraints {
+- (void)addConstraints {
     [self.view removeConstraints:self.view.constraints];
     
     // Three sub views that will have thier constraints altered.
     UIScrollView *scrollView = self.detailsScrollView;
-    UIView *heroContainer = self.heroContainerView;
+    //UIView *heroContainer = self.heroContainerView;
+    UIView *header = self.header;
     UIView *metaContainer = self.metaContainerView;
     UIView *bioContainer = self.bioContainerView;
     
-    NSDictionary *subViews = NSDictionaryOfVariableBindings(scrollView, bioContainer, metaContainer, heroContainer);
+    NSDictionary *subViews = NSDictionaryOfVariableBindings(scrollView, bioContainer, metaContainer, header);
     
     NSArray *constraints = [NSLayoutConstraint
-                            constraintsWithVisualFormat:@"V:|-[heroContainer]-10-[metaContainer]-50-[bioContainer]"
+                            constraintsWithVisualFormat:@"V:|-[header]-10-[metaContainer]-50-[bioContainer]-50-|"
                             options:0
                             metrics:nil
                             views:subViews];
 
      [self.view addConstraints:constraints];
-}*/
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

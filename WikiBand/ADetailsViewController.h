@@ -16,6 +16,7 @@
 @property (nonatomic, strong) Artist *artist;
 @property (weak, nonatomic) IBOutlet UIScrollView *detailsScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *heroImageView;
+@property (weak, nonatomic) IBOutlet UILabel *detailsTitle;
 
 
 @property (weak, nonatomic) IBOutlet UIView *metaContainerView;
