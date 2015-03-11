@@ -12,6 +12,7 @@
 #import "ADetailsViewController.h"
 #import "PresentDetailTransition.h"
 #import "DismissDetailTransition.h"
+#import "ExperimentViewController.h"
 #import "Artist.h"
 
 @interface GridViewController () <UIViewControllerTransitioningDelegate>
@@ -96,17 +97,25 @@
     
     // Get a pointer to an object that represents the app bundle
     NSBundle *appBundle = [NSBundle mainBundle];
+    
     // Look in the appBundle for the file ArtistDetailsViewController.xib
     //ArtistDetailsViewController *advc = [[ArtistDetailsViewController alloc] initWithNibName:@"ArtistDetailsViewController" bundle:appBundle];
     
-    ADetailsViewController *aaDetails = [[ADetailsViewController alloc] initWithNibName:@"ADetailsViewController" bundle:appBundle];
+    //ADetailsViewController *aaDetails = [[ADetailsViewController alloc] initWithNibName:@"ADetailsViewController" bundle:appBundle];
+    
+    ExperimentViewController *experiment = [[ExperimentViewController alloc] initWithNibName:@"ExperimentViewController" bundle:appBundle];
     
     Artist *selectedArtist = self.artists[indexPath.row];
     
-    aaDetails.artist = selectedArtist;
-    aaDetails.modalPresentationStyle = UIModalPresentationCustom;
-    aaDetails.transitioningDelegate = self;
-    [self presentViewController:aaDetails animated:YES completion:nil];
+    experiment.artist = selectedArtist;
+    experiment.modalPresentationStyle = UIModalPresentationCustom;
+    experiment.transitioningDelegate = self;
+    [self presentViewController:experiment animated:YES completion:nil];
+    
+    //aaDetails.artist = selectedArtist;
+    //aaDetails.modalPresentationStyle = UIModalPresentationCustom;
+    //aaDetails.transitioningDelegate = self;
+    //[self presentViewController:aaDetails animated:YES completion:nil];
     
     
     //advc.artist = selectedArtist;

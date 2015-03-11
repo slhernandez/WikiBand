@@ -37,6 +37,8 @@
 		E9D6237119A2F68A002A05A4 /* PresentDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D6237019A2F68A002A05A4 /* PresentDetailTransition.m */; };
 		E9D6237419A38B68002A05A4 /* DismissDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D6237319A38B68002A05A4 /* DismissDetailTransition.m */; };
 		E9D6237719AC07B7002A05A4 /* ArtistStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D6237619AC07B7002A05A4 /* ArtistStore.m */; };
+		E9E5E5A81AB050E100479C52 /* ExperimentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E5E5A61AB050E100479C52 /* ExperimentViewController.m */; };
+		E9E5E5A91AB050E100479C52 /* ExperimentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9E5E5A71AB050E100479C52 /* ExperimentViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,9 @@
 		E9D6237319A38B68002A05A4 /* DismissDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissDetailTransition.m; sourceTree = "<group>"; };
 		E9D6237519AC07B7002A05A4 /* ArtistStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistStore.h; sourceTree = "<group>"; };
 		E9D6237619AC07B7002A05A4 /* ArtistStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistStore.m; sourceTree = "<group>"; };
+		E9E5E5A51AB050E100479C52 /* ExperimentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperimentViewController.h; sourceTree = "<group>"; };
+		E9E5E5A61AB050E100479C52 /* ExperimentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperimentViewController.m; sourceTree = "<group>"; };
+		E9E5E5A71AB050E100479C52 /* ExperimentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExperimentViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +188,9 @@
 				E9D6237619AC07B7002A05A4 /* ArtistStore.m */,
 				E95DDB5D1A9CA19000C6560D /* UIButton+Extensions.h */,
 				E95DDB5E1A9CA19000C6560D /* UIButton+Extensions.m */,
+				E9E5E5A51AB050E100479C52 /* ExperimentViewController.h */,
+				E9E5E5A61AB050E100479C52 /* ExperimentViewController.m */,
+				E9E5E5A71AB050E100479C52 /* ExperimentViewController.xib */,
 			);
 			path = WikiBand;
 			sourceTree = "<group>";
@@ -298,6 +306,7 @@
 				E750D4E31A9A7B6E0004ADD7 /* Whitney-Semibold-Bas.otf in Resources */,
 				E960D6161AA946E500FA22AE /* ADetailsViewController.xib in Resources */,
 				E9A77FAB1A99283C0020DB2E /* BebasNeue-Bold.otf in Resources */,
+				E9E5E5A91AB050E100479C52 /* ExperimentViewController.xib in Resources */,
 				E9D6236B19A129C5002A05A4 /* ArtistDetailsViewController.xib in Resources */,
 				E9B8FBDE19A0033D00607236 /* InfoPlist.strings in Resources */,
 				E750D4DC1A9A74D20004ADD7 /* Whitney-Book-Bas.otf in Resources */,
@@ -331,6 +340,7 @@
 				E9D6237119A2F68A002A05A4 /* PresentDetailTransition.m in Sources */,
 				E95DDB5F1A9CA19000C6560D /* UIButton+Extensions.m in Sources */,
 				E9D6236E19A163F7002A05A4 /* Artist.m in Sources */,
+				E9E5E5A81AB050E100479C52 /* ExperimentViewController.m in Sources */,
 				E9D6237419A38B68002A05A4 /* DismissDetailTransition.m in Sources */,
 				E9B8FBE019A0033D00607236 /* main.m in Sources */,
 			);
