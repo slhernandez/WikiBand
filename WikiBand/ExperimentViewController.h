@@ -11,8 +11,14 @@
 @class Artist;
 
 @interface ExperimentViewController : UIViewController
+
+//@property (nonatomic, strong) UILabel *occupationsValue;
+//@property (nonatomic, strong) UILabel *occupationsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *occupationsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *occupationsValue;
+
+
+
 
 @property (nonatomic, strong) Artist *artist;
 @end
