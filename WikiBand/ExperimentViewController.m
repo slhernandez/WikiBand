@@ -8,10 +8,12 @@
 
 #import "ExperimentViewController.h"
 #import "Artist.h"
+#import "UIButton+Extensions.h"
 
 @interface ExperimentViewController ()
 @property (nonatomic, strong) NSDictionary *labelNameAttributes;
 @property (nonatomic, strong) NSDictionary *valueNameAttributes;
+
 @end
 
 @implementation ExperimentViewController
@@ -59,6 +61,19 @@
     self.occupationsValue.frame = CGRectMake(0, 0, self.occupationsValue.frame.size.width, textHeight);
     [self.view addSubview:self.occupationsValue];
     self.occupationsLabel.numberOfLines = 0;
+    
+    // SETUP add the close button
+    // ---------------------------
+    
+    // Create and layout the close button.
+    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [closeButton addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
+    [closeButton setBackgroundImage:[UIImage imageNamed:@"close-icon"] forState:UIControlStateNormal];
+    closeButton.frame = CGRectMake(10.0, 25.0, 15.0, 15.0);
+    [closeButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
+    closeButton.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:closeButton];
+
     
     [self addConstraints];
 }
@@ -167,15 +182,8 @@
     
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)close:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-*/
 
 @end
