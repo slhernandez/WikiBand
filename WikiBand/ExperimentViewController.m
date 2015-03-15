@@ -45,6 +45,7 @@
     
     NSAttributedString *occupationsLabelAttributed = [[NSAttributedString alloc] initWithString:self.occupationsLabel.text attributes:[self labelNameAttributes]];
     self.occupationsLabel.attributedText = occupationsLabelAttributed;
+    self.occupationsLabel.textColor = [UIColor whiteColor];
     //[self.occupationsValue sizeToFit];
 
     //self.occupationsLabel.text = @"Occupation:";
@@ -52,6 +53,7 @@
     
     NSAttributedString *occupationsValueAttributed = [[NSAttributedString alloc] initWithString:self.artist.artistOccupation attributes:[self valueNameAttributes]];
     self.occupationsValue.attributedText = occupationsValueAttributed;
+    self.occupationsValue.textColor = [UIColor whiteColor];
 
     //self.occupationsValue.text = self.artist.artistOccupation;
     //float textHeight = [self getHeightForText:self.artist.artistOccupation
