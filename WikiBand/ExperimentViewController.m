@@ -45,6 +45,7 @@
     
     NSAttributedString *occupationsLabelAttributed = [[NSAttributedString alloc] initWithString:self.occupationsLabel.text attributes:[self labelNameAttributes]];
     self.occupationsLabel.attributedText = occupationsLabelAttributed;
+    //[self.occupationsValue sizeToFit];
 
     //self.occupationsLabel.text = @"Occupation:";
     
@@ -53,14 +54,14 @@
     self.occupationsValue.attributedText = occupationsValueAttributed;
 
     //self.occupationsValue.text = self.artist.artistOccupation;
-    float textHeight = [self getHeightForText:self.artist.artistOccupation
-                                     withFont:self.occupationsValue.font
-                                     andWidth:self.occupationsValue.frame.size.width];
+    //float textHeight = [self getHeightForText:self.artist.artistOccupation
+                                    // withFont:self.occupationsValue.font
+                                    // andWidth:self.occupationsValue.frame.size.width];
     
-    NSLog(@"textHeight is %f", textHeight);
-    self.occupationsValue.frame = CGRectMake(0, 0, self.occupationsValue.frame.size.width, textHeight);
-    [self.view addSubview:self.occupationsValue];
-    self.occupationsLabel.numberOfLines = 0;
+    //NSLog(@"textHeight is %f", textHeight);
+    //self.occupationsValue.frame = CGRectMake(0, 0, self.occupationsValue.frame.size.width, textHeight);
+    //[self.view addSubview:self.occupationsValue];
+    //self.occupationsLabel.numberOfLines = 0;
     
     // SETUP add the close button
     // ---------------------------
@@ -75,7 +76,7 @@
     [self.view addSubview:closeButton];
 
     
-    [self addConstraints];
+    //[self addConstraints];
 }
 
 - (void) addConstraints {

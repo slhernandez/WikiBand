@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExperimentViewController">
             <connections>
+                <outlet property="bioTextView" destination="NZD-Je-B4v" id="RBQ-ri-xIe"/>
                 <outlet property="occupationsLabel" destination="iId-VT-E3l" id="KRZ-qa-wj7"/>
                 <outlet property="occupationsValue" destination="AXU-mL-hh0" id="0rj-dk-xDh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -17,21 +18,35 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Occupations:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iId-VT-E3l">
-                    <rect key="frame" x="8" y="223" width="130" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Occupations:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iId-VT-E3l">
+                    <rect key="frame" x="8" y="223" width="102.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Occupations Value" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXU-mL-hh0">
-                    <rect key="frame" x="8" y="252" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Occupations Value" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXU-mL-hh0">
+                    <rect key="frame" x="120" y="223" width="192" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NZD-Je-B4v">
+                    <rect key="frame" x="40" y="286" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="356" y="552"/>
+            <constraints>
+                <constraint firstItem="AXU-mL-hh0" firstAttribute="leading" secondItem="iId-VT-E3l" secondAttribute="trailing" constant="9.5" id="0ai-tV-9D4"/>
+                <constraint firstAttribute="trailing" secondItem="AXU-mL-hh0" secondAttribute="trailing" constant="8" id="Emj-in-alN"/>
+                <constraint firstItem="iId-VT-E3l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="223" id="eY8-kA-JPg"/>
+                <constraint firstItem="AXU-mL-hh0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="223" id="iEv-dO-xas"/>
+                <constraint firstItem="iId-VT-E3l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="j9J-lU-cOF"/>
+            </constraints>
+            <point key="canvasLocation" x="356.5" y="552"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
