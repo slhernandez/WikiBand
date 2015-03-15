@@ -45,37 +45,9 @@
     
     NSAttributedString *occupationsLabelAttributed = [[NSAttributedString alloc] initWithString:self.occupationsLabel.text attributes:[self labelNameAttributes]];
     self.occupationsLabel.attributedText = occupationsLabelAttributed;
-    self.occupationsLabel.textColor = [UIColor whiteColor];
-    self.occupationsLabel.backgroundColor = [UIColor redColor];
-    //[self.occupationsValue sizeToFit];
-
-    //self.occupationsLabel.text = @"Occupation:";
-    
     
     NSAttributedString *occupationsValueAttributed = [[NSAttributedString alloc] initWithString:self.artist.artistOccupation attributes:[self valueNameAttributes]];
     self.occupationsValue.attributedText = occupationsValueAttributed;
-    self.occupationsValue.textColor = [UIColor whiteColor];
-    self.occupationsValue.backgroundColor = [UIColor grayColor];
-    
-    // Let's get the text height for occupations value.  We want to dynamically set the height for the parent view.
-    float textHeight = [self getHeightForText:self.artist.artistOccupation withFont:self.occupationsValue.font andWidth:self.occupationsValue.frame.size.width];
-    NSLog(@"textHeight: %lf", textHeight);
-    
-    CGRect metaFrame = self.metaContainer.frame;
-    NSLog(@"metaContainer height before %lf", self.metaContainer.frame.size.height);
-    self.metaContainer.frame = CGRectMake(metaFrame.origin.x, metaFrame.origin.y, metaFrame.size.width, textHeight);
-    NSLog(@"metaContainer height after %lf", self.metaContainer.frame.size.height);
-    
-
-    //self.occupationsValue.text = self.artist.artistOccupation;
-    //float textHeight = [self getHeightForText:self.artist.artistOccupation
-                                    // withFont:self.occupationsValue.font
-                                    // andWidth:self.occupationsValue.frame.size.width];
-    
-    //NSLog(@"textHeight is %f", textHeight);
-    //self.occupationsValue.frame = CGRectMake(0, 0, self.occupationsValue.frame.size.width, textHeight);
-    //[self.view addSubview:self.occupationsValue];
-    //self.occupationsLabel.numberOfLines = 0;
     
     // SETUP add the close button
     // ---------------------------
@@ -88,56 +60,8 @@
     [closeButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
     closeButton.backgroundColor = [UIColor blackColor];
     [self.view addSubview:closeButton];
-
-    
-    //[self addConstraints];
-}
-
-- (void) addConstraints {
-    
-    [self.view removeConstraints:self.view.constraints];
-    
-    
-    UILabel *occupationsLabel = self.occupationsLabel;
-    UILabel *occupationsValue = self.occupationsValue;
-    
-    
-    NSDictionary *views = NSDictionaryOfVariableBindings(occupationsLabel, occupationsValue);
-    
-    NSDictionary *metrics = @{@"width": @260.0, @"horizontalSpacing":@15.0, @"verticalSpacing":@30};
-    
-    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:
-                            @"H:|-[occupationsLabel]-horizontalSpacing-[occupationsValue]-|"
-                                                                   options:NSLayoutFormatAlignAllTop
-                                                                   metrics:metrics
-                                                                     views:views];
-    
-    /*constraints = [constraints arrayByAddingObjectsFromArray:
-                   [NSLayoutConstraint constraintsWithVisualFormat:
-                    @"H:[imageView]-horizontalSpacing-[lastName(>=width)]-|"
-                                                           options:0
-                                                           metrics:metrics
-                                                             views:views]];*/
-    
-    /*constraints = [constraints arrayByAddingObjectsFromArray:
-                   [NSLayoutConstraint constraintsWithVisualFormat:
-                    @"H:[imageView]-horizontalSpacing-[comment(>=width)]-|"
-                                                           options:NSLayoutFormatAlignAllBottom
-                                                           metrics:metrics
-                                                             views:views]];*/
-    
-    constraints = [constraints arrayByAddingObjectsFromArray:
-                   [NSLayoutConstraint constraintsWithVisualFormat:
-                    @"V:|-50-[occupationsLabel]"
-                                                           options:0
-                                                           metrics:metrics
-                                                             views:views]];
-    
-    
-    [self.view addConstraints:constraints];
     
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
