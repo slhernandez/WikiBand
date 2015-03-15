@@ -46,6 +46,7 @@
     NSAttributedString *occupationsLabelAttributed = [[NSAttributedString alloc] initWithString:self.occupationsLabel.text attributes:[self labelNameAttributes]];
     self.occupationsLabel.attributedText = occupationsLabelAttributed;
     self.occupationsLabel.textColor = [UIColor whiteColor];
+    self.occupationsLabel.backgroundColor = [UIColor redColor];
     //[self.occupationsValue sizeToFit];
 
     //self.occupationsLabel.text = @"Occupation:";
@@ -54,6 +55,17 @@
     NSAttributedString *occupationsValueAttributed = [[NSAttributedString alloc] initWithString:self.artist.artistOccupation attributes:[self valueNameAttributes]];
     self.occupationsValue.attributedText = occupationsValueAttributed;
     self.occupationsValue.textColor = [UIColor whiteColor];
+    self.occupationsValue.backgroundColor = [UIColor grayColor];
+    
+    // Let's get the text height for occupations value.  We want to dynamically set the height for the parent view.
+    float textHeight = [self getHeightForText:self.artist.artistOccupation withFont:self.occupationsValue.font andWidth:self.occupationsValue.frame.size.width];
+    NSLog(@"textHeight: %lf", textHeight);
+    
+    CGRect metaFrame = self.metaContainer.frame;
+    NSLog(@"metaContainer height before %lf", self.metaContainer.frame.size.height);
+    self.metaContainer.frame = CGRectMake(metaFrame.origin.x, metaFrame.origin.y, metaFrame.size.width, textHeight);
+    NSLog(@"metaContainer height after %lf", self.metaContainer.frame.size.height);
+    
 
     //self.occupationsValue.text = self.artist.artistOccupation;
     //float textHeight = [self getHeightForText:self.artist.artistOccupation

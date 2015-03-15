@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExperimentViewController">
             <connections>
+                <outlet property="metaContainer" destination="UF8-We-uAo" id="M4A-qg-Ls2"/>
                 <outlet property="occupationsLabel" destination="iId-VT-E3l" id="KRZ-qa-wj7"/>
                 <outlet property="occupationsValue" destination="AXU-mL-hh0" id="0rj-dk-xDh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -18,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UF8-We-uAo">
-                    <rect key="frame" x="8" y="187" width="304" height="86"/>
+                    <rect key="frame" x="8" y="187" width="304" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Occupations:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iId-VT-E3l">
                             <rect key="frame" x="8" y="8" width="102.5" height="20.5"/>
@@ -38,6 +39,7 @@
                         <constraint firstItem="AXU-mL-hh0" firstAttribute="leading" secondItem="iId-VT-E3l" secondAttribute="trailing" constant="14" id="0DP-Dg-o5P"/>
                         <constraint firstItem="iId-VT-E3l" firstAttribute="top" secondItem="UF8-We-uAo" secondAttribute="top" constant="8" id="Ic9-PU-fZL"/>
                         <constraint firstAttribute="trailing" secondItem="AXU-mL-hh0" secondAttribute="trailing" constant="8" id="T0M-Sc-y7L"/>
+                        <constraint firstAttribute="bottom" secondItem="AXU-mL-hh0" secondAttribute="bottom" constant="21.5" id="VWm-rc-lXI"/>
                         <constraint firstItem="AXU-mL-hh0" firstAttribute="top" secondItem="UF8-We-uAo" secondAttribute="top" constant="8" id="hNr-2K-3sV"/>
                         <constraint firstItem="iId-VT-E3l" firstAttribute="leading" secondItem="UF8-We-uAo" secondAttribute="leading" constant="8" id="wmw-Hn-yhX"/>
                     </constraints>
@@ -45,8 +47,8 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="UF8-We-uAo" secondAttribute="bottom" constant="331" id="Dz0-nU-cgH"/>
                 <constraint firstItem="UF8-We-uAo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="187" id="hkU-sd-SNq"/>
-                <constraint firstAttribute="bottom" secondItem="UF8-We-uAo" secondAttribute="bottom" constant="295" id="n3t-Hb-5Gf"/>
                 <constraint firstAttribute="trailing" secondItem="UF8-We-uAo" secondAttribute="trailing" constant="8" id="pep-qs-w16"/>
                 <constraint firstItem="UF8-We-uAo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="wfR-vY-b7z"/>
             </constraints>
