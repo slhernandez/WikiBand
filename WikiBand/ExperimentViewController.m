@@ -21,27 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view from its nib.
-    
-
-   
-    // Programatically set the UILabel for Occupations Value
-    /*UILabel *occupationsValue = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300.0f, 500.0f)];
-    float textHeight = [self getHeightForText:self.artist.artistOccupation withFont:occupationsValue.font andWidth:occupationsValue.frame.size.width];
-    NSLog(@"textHeight is %f", textHeight);
-    occupationsValue.frame = CGRectMake(0, 0, occupationsValue.frame.size.width, textHeight);
-    occupationsValue.text = self.artist.artistOccupation;
-    occupationsValue.numberOfLines = 0;
-    occupationsValue.backgroundColor = [UIColor redColor];
-    [self.view addSubview:occupationsValue];*/
-
-    // Programatically set the UILabel for Occupations Label
-    /*UILabel *occupationsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, 20.0f, 50.0f)];
-    occupationsLabel.text = @"Occupation:";
-    occupationsLabel.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:occupationsLabel];*/
-    
     // LABELS setup on xib
+    
+    NSAttributedString *bornLabelAttributed = [[NSAttributedString alloc] initWithString:self.bornLabel.text attributes:[self labelNameAttributes]];
+    self.bornLabel.attributedText = bornLabelAttributed;
+    
+    NSAttributedString *bornValueAttributed = [[NSAttributedString alloc] initWithString:self.artist.artistBornDate attributes:[self valueNameAttributes]];
+    self.bornValue.attributedText = bornValueAttributed;
     
     NSAttributedString *occupationsLabelAttributed = [[NSAttributedString alloc] initWithString:self.occupationsLabel.text attributes:[self labelNameAttributes]];
     self.occupationsLabel.attributedText = occupationsLabelAttributed;

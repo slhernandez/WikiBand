@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIView *metaContainer;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *bornLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bornValue;
 
 
 

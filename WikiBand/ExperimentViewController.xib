@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExperimentViewController">
             <connections>
+                <outlet property="bornLabel" destination="fHv-Fz-SSQ" id="1fK-Q4-7bd"/>
+                <outlet property="bornValue" destination="0Hc-DZ-ryw" id="dvE-x7-oA8"/>
                 <outlet property="metaContainer" destination="UF8-We-uAo" id="M4A-qg-Ls2"/>
                 <outlet property="occupationsLabel" destination="iId-VT-E3l" id="KRZ-qa-wj7"/>
                 <outlet property="occupationsValue" destination="AXU-mL-hh0" id="0rj-dk-xDh"/>
@@ -19,16 +21,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UF8-We-uAo">
-                    <rect key="frame" x="8" y="187" width="304" height="35"/>
+                    <rect key="frame" x="8" y="118" width="304" height="103.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Occupations:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iId-VT-E3l">
-                            <rect key="frame" x="8" y="8" width="102.5" height="20.5"/>
+                            <rect key="frame" x="8" y="73" width="102.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Occupations Value" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXU-mL-hh0">
-                            <rect key="frame" x="124" y="8" width="171.5" height="20.5"/>
+                            <rect key="frame" x="124" y="74" width="172" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Born:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHv-Fz-SSQ">
+                            <rect key="frame" x="8" y="41" width="42" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Born Value" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hc-DZ-ryw">
+                            <rect key="frame" x="58" y="41" width="238" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -38,18 +52,23 @@
                     <color key="tintColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="AXU-mL-hh0" firstAttribute="leading" secondItem="iId-VT-E3l" secondAttribute="trailing" constant="14" id="0DP-Dg-o5P"/>
-                        <constraint firstItem="iId-VT-E3l" firstAttribute="top" secondItem="UF8-We-uAo" secondAttribute="top" constant="8" id="Ic9-PU-fZL"/>
+                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="0Hc-DZ-ryw" secondAttribute="trailing" constant="8" id="BEd-7J-fa4"/>
+                        <constraint firstItem="0Hc-DZ-ryw" firstAttribute="leading" relation="lessThanOrEqual" secondItem="fHv-Fz-SSQ" secondAttribute="trailing" constant="8" id="FWj-uT-P3j"/>
+                        <constraint firstItem="iId-VT-E3l" firstAttribute="top" secondItem="fHv-Fz-SSQ" secondAttribute="bottom" constant="11.5" id="Fzj-h6-FcC"/>
+                        <constraint firstItem="fHv-Fz-SSQ" firstAttribute="leading" secondItem="UF8-We-uAo" secondAttribute="leading" constant="8" id="Sv4-pp-aiF"/>
                         <constraint firstAttribute="trailing" secondItem="AXU-mL-hh0" secondAttribute="trailing" constant="8" id="T0M-Sc-y7L"/>
-                        <constraint firstAttribute="bottom" secondItem="AXU-mL-hh0" secondAttribute="bottom" constant="6.5" id="VWm-rc-lXI"/>
-                        <constraint firstItem="AXU-mL-hh0" firstAttribute="top" secondItem="UF8-We-uAo" secondAttribute="top" constant="8" id="hNr-2K-3sV"/>
+                        <constraint firstItem="fHv-Fz-SSQ" firstAttribute="top" secondItem="UF8-We-uAo" secondAttribute="top" constant="41" id="TdH-t1-WCx"/>
+                        <constraint firstAttribute="bottom" secondItem="AXU-mL-hh0" secondAttribute="bottom" constant="8.5" id="VWm-rc-lXI"/>
+                        <constraint firstItem="AXU-mL-hh0" firstAttribute="top" secondItem="0Hc-DZ-ryw" secondAttribute="bottom" constant="12.5" id="g6J-P6-as6"/>
                         <constraint firstItem="iId-VT-E3l" firstAttribute="leading" secondItem="UF8-We-uAo" secondAttribute="leading" constant="8" id="wmw-Hn-yhX"/>
+                        <constraint firstItem="0Hc-DZ-ryw" firstAttribute="top" secondItem="UF8-We-uAo" secondAttribute="top" constant="41" id="zMf-o8-HL0"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="UF8-We-uAo" secondAttribute="bottom" constant="346" id="Dz0-nU-cgH"/>
-                <constraint firstItem="UF8-We-uAo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="187" id="hkU-sd-SNq"/>
+                <constraint firstItem="UF8-We-uAo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="118" id="hkU-sd-SNq"/>
                 <constraint firstAttribute="trailing" secondItem="UF8-We-uAo" secondAttribute="trailing" constant="8" id="pep-qs-w16"/>
                 <constraint firstItem="UF8-We-uAo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="wfR-vY-b7z"/>
             </constraints>
