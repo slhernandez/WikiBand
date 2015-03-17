@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXt-ZX-m7B">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXt-ZX-m7B" userLabel="Header">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="285"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -99,16 +99,26 @@
                         <constraint firstItem="0Hc-DZ-ryw" firstAttribute="top" secondItem="UF8-We-uAo" secondAttribute="top" constant="41" id="zMf-o8-HL0"/>
                     </constraints>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTV-lk-knE">
+                    <rect key="frame" x="8" y="394" width="304" height="166"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="UF8-We-uAo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Eie-RV-kWg"/>
-                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="UF8-We-uAo" secondAttribute="bottom" constant="182" id="Vf8-Xy-m4U"/>
                 <constraint firstItem="UF8-We-uAo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="283" id="cfH-Ct-Io8"/>
                 <constraint firstAttribute="trailing" secondItem="UF8-We-uAo" secondAttribute="trailing" id="enK-VR-S0O"/>
                 <constraint firstAttribute="trailing" secondItem="rXt-ZX-m7B" secondAttribute="trailing" id="fNA-zP-Mfo"/>
+                <constraint firstAttribute="trailing" secondItem="ZTV-lk-knE" secondAttribute="trailing" constant="8" id="low-fO-cQ9"/>
+                <constraint firstItem="ZTV-lk-knE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="mrE-hg-dW7"/>
                 <constraint firstItem="rXt-ZX-m7B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vJz-Co-DBy"/>
+                <constraint firstItem="ZTV-lk-knE" firstAttribute="top" secondItem="UF8-We-uAo" secondAttribute="bottom" constant="8" id="w4m-Uu-dih"/>
                 <constraint firstItem="rXt-ZX-m7B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="z3V-m0-4D6"/>
+                <constraint firstAttribute="bottom" secondItem="ZTV-lk-knE" secondAttribute="bottom" constant="8" id="zUr-Nc-BOj"/>
             </constraints>
             <point key="canvasLocation" x="356" y="552"/>
         </view>
