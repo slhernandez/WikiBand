@@ -23,6 +23,12 @@
     
     // LABELS setup on xib
     
+    NSAttributedString *nameLabelAttributed = [[NSAttributedString alloc] initWithString:self.nameLabel.text attributes:[self labelNameAttributes]];
+    self.nameLabel.attributedText = nameLabelAttributed;
+    
+    NSAttributedString *nameValueAttributed = [[NSAttributedString alloc] initWithString:self.artist.artistBirthName attributes:[self valueNameAttributes]];
+    self.nameValue.attributedText = nameValueAttributed;
+    
     NSAttributedString *bornLabelAttributed = [[NSAttributedString alloc] initWithString:self.bornLabel.text attributes:[self labelNameAttributes]];
     self.bornLabel.attributedText = bornLabelAttributed;
     

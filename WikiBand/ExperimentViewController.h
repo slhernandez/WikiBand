@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *bornLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bornValue;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameValue;
 
 
 @property (nonatomic, strong) Artist *artist;
