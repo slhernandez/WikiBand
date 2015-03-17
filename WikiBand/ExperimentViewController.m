@@ -41,6 +41,15 @@
     NSAttributedString *occupationsValueAttributed = [[NSAttributedString alloc] initWithString:self.artist.artistOccupation attributes:[self valueNameAttributes]];
     self.occupationsValue.attributedText = occupationsValueAttributed;
     
+    // SETUP Header UIView with artist image
+    UIImageView *artistImage = [[UIImageView alloc] initWithFrame:self.header.frame];
+    artistImage.image = self.artist.artistDetailImage;
+    //artistImage.contentMode = UIViewContentModeScaleAspectFill;
+    //self.header.backgroundColor = [UIColor blueColor];
+    [self.header insertSubview:artistImage atIndex:0];
+    //[self.header addSubview:artistImage];
+    
+    
     // SETUP add the close button
     // ---------------------------
     
@@ -50,7 +59,7 @@
     [closeButton setBackgroundImage:[UIImage imageNamed:@"close-icon"] forState:UIControlStateNormal];
     closeButton.frame = CGRectMake(10.0, 25.0, 15.0, 15.0);
     [closeButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
-    closeButton.backgroundColor = [UIColor blackColor];
+    //closeButton.backgroundColor = [UIColor blackColor];
     [self.view addSubview:closeButton];
     
 }

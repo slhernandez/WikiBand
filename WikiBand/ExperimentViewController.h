@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameValue;
 
+@property (weak, nonatomic) IBOutlet UIView *header;
 
 @property (nonatomic, strong) Artist *artist;
 @end

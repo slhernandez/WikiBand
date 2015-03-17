@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="bornLabel" destination="fHv-Fz-SSQ" id="1fK-Q4-7bd"/>
                 <outlet property="bornValue" destination="0Hc-DZ-ryw" id="dvE-x7-oA8"/>
+                <outlet property="header" destination="rXt-ZX-m7B" id="YuX-H2-KhE"/>
                 <outlet property="metaContainer" destination="UF8-We-uAo" id="M4A-qg-Ls2"/>
                 <outlet property="nameLabel" destination="NDs-2f-PG7" id="FD3-mf-wWR"/>
                 <outlet property="nameValue" destination="hYs-Ax-3Wf" id="Ceo-IM-J5K"/>
@@ -22,8 +23,15 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXt-ZX-m7B">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="285"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="285" id="j5S-kF-BT1"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UF8-We-uAo">
-                    <rect key="frame" x="0.0" y="118" width="320" height="103.5"/>
+                    <rect key="frame" x="0.0" y="283" width="320" height="103.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Occupations:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iId-VT-E3l">
                             <rect key="frame" x="8" y="73" width="102.5" height="20.5"/>
@@ -94,10 +102,13 @@
             </subviews>
             <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="UF8-We-uAo" secondAttribute="bottom" constant="346" id="L6f-c8-6KG"/>
-                <constraint firstItem="UF8-We-uAo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="118" id="hkU-sd-SNq"/>
-                <constraint firstAttribute="trailing" secondItem="UF8-We-uAo" secondAttribute="trailing" id="pep-qs-w16"/>
-                <constraint firstItem="UF8-We-uAo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wfR-vY-b7z"/>
+                <constraint firstItem="UF8-We-uAo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Eie-RV-kWg"/>
+                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="UF8-We-uAo" secondAttribute="bottom" constant="182" id="Vf8-Xy-m4U"/>
+                <constraint firstItem="UF8-We-uAo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="283" id="cfH-Ct-Io8"/>
+                <constraint firstAttribute="trailing" secondItem="UF8-We-uAo" secondAttribute="trailing" id="enK-VR-S0O"/>
+                <constraint firstAttribute="trailing" secondItem="rXt-ZX-m7B" secondAttribute="trailing" id="fNA-zP-Mfo"/>
+                <constraint firstItem="rXt-ZX-m7B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vJz-Co-DBy"/>
+                <constraint firstItem="rXt-ZX-m7B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="z3V-m0-4D6"/>
             </constraints>
             <point key="canvasLocation" x="356" y="552"/>
         </view>
