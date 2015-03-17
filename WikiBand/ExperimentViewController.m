@@ -49,6 +49,14 @@
     [self.header insertSubview:artistImage atIndex:0];
     //[self.header addSubview:artistImage];
     
+    // SETUP the bioTextView (UITextView)
+    
+    NSAttributedString *artistBioAttributed = [[NSAttributedString alloc] initWithString:self.artist.artistBio attributes:[self paragraphAttributes]];
+    self.bioTextView.attributedText = artistBioAttributed;
+    //self.bioTextView.scrollEnabled = NO;
+    // Call this function to dynamically calculate it's own height.
+    //[self textViewDidChange:self.bioTextView];
+    
     
     // SETUP add the close button
     // ---------------------------
@@ -67,6 +75,31 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// Setup paragraph attributes for Biography text.
+// -----------------------------------------------
+- (NSDictionary *)paragraphAttributes {
+    UIFont *paragraphFont = [UIFont fontWithName:@"Whitney-Book" size:15];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.firstLineHeadIndent = 10.0f;
+    paragraphStyle.lineSpacing = 10.0f;
+    paragraphStyle.paragraphSpacing = 10.0f;
+    
+    return @{ NSParagraphStyleAttributeName: paragraphStyle,
+              NSFontAttributeName: paragraphFont
+              };
+}
+
+// Dynamically calculate the height of the bioTextView.
+// ----------------------------------------------------
+- (void)textViewDidChange:(UITextView *)textView
+{
+    CGFloat fixedWidth = textView.frame.size.width;
+    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+    CGRect newFrame = textView.frame;
+    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+    textView.frame = newFrame;
 }
 
 -(float) getHeightForText:(NSString*) text withFont:(UIFont*) font andWidth:(float) width{
