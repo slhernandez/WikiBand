@@ -16,6 +16,7 @@
 
 @interface ExperimentViewController ()
 
+@property (nonatomic, strong) NSDictionary *heroTitleAttributes;
 @property (nonatomic, strong) NSDictionary *labelNameAttributes;
 @property (nonatomic, strong) NSDictionary *valueNameAttributes;
 
@@ -30,6 +31,7 @@
     self.detailsScrollView.delegate = self;
     self.detailsScrollView.clipsToBounds = self;
     self.detailsScrollView.bounces = YES;
+    
     
     // LABELS setup on xib
     
@@ -66,6 +68,16 @@
     self.bioTextView.scrollEnabled = NO;
     // Call this function to dynamically calculate it's own height.
     [self textViewDidChange:self.bioTextView];
+    
+    // SETUP Artist Title
+    // -------------------
+    NSAttributedString *artistNameAttributed = [[NSAttributedString alloc]
+                                                initWithString:[self.artist.artistName uppercaseString]
+                                                attributes:[self heroTitleAttributes]];
+    
+    self.artistNameLabel.attributedText = artistNameAttributed;
+    self.artistNameLabel.textAlignment = NSTextAlignmentCenter;
+    self.artistNameLabel.adjustsFontSizeToFitWidth = YES;
     
     
     // SETUP add the close button
@@ -106,6 +118,32 @@
     [self.detailsScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), totalHeight)];
     
 }
+
+- (NSDictionary *)heroTitleAttributes {
+    
+    if (_heroTitleAttributes == nil) {
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = 20.0f;
+        paragraphStyle.paragraphSpacing = 10.0f;
+        
+        UIFont *font = [UIFont fontWithName:@"Whitney-Semibold" size:20.0f];
+        NSShadow *shadow = [[NSShadow alloc] init];
+        shadow.shadowBlurRadius = 2.0f;
+        shadow.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.30f];
+        shadow.shadowOffset = CGSizeMake(1,1);
+        _heroTitleAttributes = @{
+                                 NSParagraphStyleAttributeName: paragraphStyle,
+                                 NSShadowAttributeName: shadow,
+                                 NSFontAttributeName: font,
+                                 NSForegroundColorAttributeName: [UIColor whiteColor],
+                                 NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)
+                                 };
+        
+    }
+    
+    return _heroTitleAttributes;
+}
+
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset = self.detailsScrollView.contentOffset.y;
