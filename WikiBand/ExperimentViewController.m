@@ -61,6 +61,16 @@
     [self.header insertSubview:artistImage atIndex:0];
     //[self.header addSubview:artistImage];
     
+    // Add image gradient to hero layer
+    // ---------------------------------
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = artistImage.bounds;
+    gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0] CGColor],
+                        (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2] CGColor],
+                        (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6] CGColor]];
+    [artistImage.layer insertSublayer:gradient atIndex:0];
+
+    
     // SETUP the bioTextView (UITextView)
     
     NSAttributedString *artistBioAttributed = [[NSAttributedString alloc] initWithString:self.artist.artistBio attributes:[self paragraphAttributes]];
