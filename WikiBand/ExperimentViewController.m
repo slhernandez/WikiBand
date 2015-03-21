@@ -10,7 +10,12 @@
 #import "Artist.h"
 #import "UIButton+Extensions.h"
 
+//const CGFloat offset_HeaderStop = 20.0;
+//const CGFloat offset_B_LabelHeader = 35.0;
+//const CGFloat distance_W_LabelHeader = 35.0;
+
 @interface ExperimentViewController ()
+
 @property (nonatomic, strong) NSDictionary *labelNameAttributes;
 @property (nonatomic, strong) NSDictionary *valueNameAttributes;
 
@@ -20,6 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // SCROLLVIEW setup
+    self.detailsScrollView.delegate = self;
+    self.detailsScrollView.clipsToBounds = self;
+    self.detailsScrollView.bounces = YES;
     
     // LABELS setup on xib
     
@@ -53,9 +63,9 @@
     
     NSAttributedString *artistBioAttributed = [[NSAttributedString alloc] initWithString:self.artist.artistBio attributes:[self paragraphAttributes]];
     self.bioTextView.attributedText = artistBioAttributed;
-    //self.bioTextView.scrollEnabled = NO;
+    self.bioTextView.scrollEnabled = NO;
     // Call this function to dynamically calculate it's own height.
-    //[self textViewDidChange:self.bioTextView];
+    [self textViewDidChange:self.bioTextView];
     
     
     // SETUP add the close button
@@ -70,6 +80,57 @@
     //closeButton.backgroundColor = [UIColor blackColor];
     [self.view addSubview:closeButton];
     
+    
+    // HEIGHT CALCULATIONS
+    // Figure out the total height of the view.
+    NSInteger detailsHeaderHeight = self.header.frame.size.height;
+    NSLog(@"detailsHeaderHeight %li", detailsHeaderHeight);
+    
+    // Get the height for the header / image
+    NSInteger metaContainerHeight = self.metaContainer.frame.size.height;
+    NSLog(@"metaContainerHeight %li", metaContainerHeight);
+    
+    // Get the height of the bio meta view
+    NSInteger bioTextHeight = self.bioTextView.frame.size.height;
+    NSLog(@"bioTextHeight %li", bioTextHeight);
+    
+    NSInteger totalHeight = detailsHeaderHeight + metaContainerHeight + bioTextHeight;
+    NSLog(@"totalHeight %li", totalHeight);
+    
+    // get the height of the bioText (textView)
+    
+    // Not sure if this is the exact place to ensure
+    // the content size for the details view fits the
+    // scroll view.
+    //self.detailsScrollView.backgroundColor = [UIColor blackColor];
+    [self.detailsScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), totalHeight)];
+    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offset = self.detailsScrollView.contentOffset.y;
+    CATransform3D headerTransform = CATransform3DIdentity;
+    //NSLog(@"offset... %f", offset);
+    
+    if (offset < 0) {
+        //NSLog(@"pulling down");
+        CGFloat headerScaleFactor = -(offset)/self.header.bounds.size.height;
+        CGFloat headerSizevariation = ((self.header.bounds.size.height * (1.0 + headerScaleFactor)) - self.header.bounds.size.height)/2.0;
+        headerTransform = CATransform3DTranslate(headerTransform, 1, headerSizevariation, 0);
+        headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0);
+        //self.detailsScrollView.layer.transform = headerTransform;
+        self.header.layer.transform = headerTransform;
+    } else {
+        //NSLog(@"Scoll up/down");
+        // Header ------------------
+        //headerTransform = CATransform3DTranslate(headerTransform, 0, fmax(-offset_HeaderStop, -offset), 0);
+        
+        // Label -------------------
+        //CATransform3D labelTransform = CATransform3DMakeTranslation(0, fmax(-distance_W_LabelHeader, offset_B_LabelHeader - offset), 0);
+        //self.detailsTitle.layer.transform = labelTransform;
+        
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

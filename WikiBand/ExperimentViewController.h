@@ -10,7 +10,7 @@
 
 @class Artist;
 
-@interface ExperimentViewController : UIViewController
+@interface ExperimentViewController : UIViewController <UIScrollViewDelegate>
 
 //@property (nonatomic, strong) UILabel *occupationsValue;
 //@property (nonatomic, strong) UILabel *occupationsLabel;
@@ -27,6 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *header;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
+@property (weak, nonatomic) IBOutlet UIScrollView *detailsScrollView;
 
 @property (nonatomic, strong) Artist *artist;
 @end
