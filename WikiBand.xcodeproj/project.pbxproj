@@ -37,6 +37,7 @@
 		E9D6237119A2F68A002A05A4 /* PresentDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D6237019A2F68A002A05A4 /* PresentDetailTransition.m */; };
 		E9D6237419A38B68002A05A4 /* DismissDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D6237319A38B68002A05A4 /* DismissDetailTransition.m */; };
 		E9D6237719AC07B7002A05A4 /* ArtistStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D6237619AC07B7002A05A4 /* ArtistStore.m */; };
+		E9E01BC81AC416E000912140 /* MediaItems.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E01BC71AC416E000912140 /* MediaItems.m */; };
 		E9E5E5A81AB050E100479C52 /* ExperimentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E5E5A61AB050E100479C52 /* ExperimentViewController.m */; };
 		E9E5E5A91AB050E100479C52 /* ExperimentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9E5E5A71AB050E100479C52 /* ExperimentViewController.xib */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,8 @@
 		E9D6237319A38B68002A05A4 /* DismissDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissDetailTransition.m; sourceTree = "<group>"; };
 		E9D6237519AC07B7002A05A4 /* ArtistStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistStore.h; sourceTree = "<group>"; };
 		E9D6237619AC07B7002A05A4 /* ArtistStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistStore.m; sourceTree = "<group>"; };
+		E9E01BC61AC416E000912140 /* MediaItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItems.h; sourceTree = "<group>"; };
+		E9E01BC71AC416E000912140 /* MediaItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItems.m; sourceTree = "<group>"; };
 		E9E5E5A51AB050E100479C52 /* ExperimentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperimentViewController.h; sourceTree = "<group>"; };
 		E9E5E5A61AB050E100479C52 /* ExperimentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperimentViewController.m; sourceTree = "<group>"; };
 		E9E5E5A71AB050E100479C52 /* ExperimentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExperimentViewController.xib; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				E9B8FC0619A00E9D00607236 /* ArtistCell.m */,
 				E9D6236C19A163F7002A05A4 /* Artist.h */,
 				E9D6236D19A163F7002A05A4 /* Artist.m */,
+				E9E01BC61AC416E000912140 /* MediaItems.h */,
+				E9E01BC71AC416E000912140 /* MediaItems.m */,
 				E9D6236F19A2F68A002A05A4 /* PresentDetailTransition.h */,
 				E9D6237019A2F68A002A05A4 /* PresentDetailTransition.m */,
 				E9D6237219A38B68002A05A4 /* DismissDetailTransition.h */,
@@ -331,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9B8FBE419A0033D00607236 /* AppDelegate.m in Sources */,
+				E9E01BC81AC416E000912140 /* MediaItems.m in Sources */,
 				E960D6151AA946E500FA22AE /* ADetailsViewController.m in Sources */,
 				E7A4A9341A914AD100ACE036 /* DetailsViewController.m in Sources */,
 				E9B8FC0419A005B000607236 /* GridViewController.m in Sources */,
