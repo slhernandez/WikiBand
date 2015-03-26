@@ -30,9 +30,9 @@
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     
-    layout.itemSize = CGSizeMake(159.0, 159.0);
-    layout.minimumInteritemSpacing = 0.5;
-    layout.minimumLineSpacing = 2.0;
+    layout.itemSize = CGSizeMake(160, 160);
+    layout.minimumInteritemSpacing = 0.0;
+    layout.minimumLineSpacing = 0.0;
     
     // Let's create an array of photos for prototyping
     self.photos = [[NSArray alloc] initWithObjects:@"Beck",
@@ -59,9 +59,9 @@
     self.title = @"WikiBand";
     
     [self.collectionView registerClass:[ArtistCell class] forCellWithReuseIdentifier:@"photo"];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor blackColor];
     self.collectionView.scrollEnabled = YES;
-    self.collectionView.bounces = NO;
+    self.collectionView.bounces = YES;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

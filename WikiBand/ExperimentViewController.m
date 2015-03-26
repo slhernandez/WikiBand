@@ -10,7 +10,7 @@
 #import "Artist.h"
 #import "UIButton+Extensions.h"
 
-//const CGFloat offset_HeaderStop = 20.0;
+const CGFloat headerStop = 20.0;
 //const CGFloat offset_B_LabelHeader = 35.0;
 //const CGFloat distance_W_LabelHeader = 35.0;
 
@@ -155,7 +155,7 @@
 }
 
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+/*- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset = self.detailsScrollView.contentOffset.y;
     CATransform3D headerTransform = CATransform3DIdentity;
     //NSLog(@"offset... %f", offset);
@@ -169,9 +169,9 @@
         //self.detailsScrollView.layer.transform = headerTransform;
         self.header.layer.transform = headerTransform;
     } else {
-        //NSLog(@"Scoll up/down");
+        NSLog(@"Scoll up/down");
         // Header ------------------
-        //headerTransform = CATransform3DTranslate(headerTransform, 0, fmax(-offset_HeaderStop, -offset), 0);
+        headerTransform = CATransform3DTranslate(headerTransform, 0, fmax(80, -offset), 0);
         
         // Label -------------------
         //CATransform3D labelTransform = CATransform3DMakeTranslation(0, fmax(-distance_W_LabelHeader, offset_B_LabelHeader - offset), 0);
@@ -179,7 +179,7 @@
         
         
     }
-}
+}*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

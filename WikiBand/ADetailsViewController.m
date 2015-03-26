@@ -138,7 +138,7 @@ const CGFloat distance_W_LabelHeader = 35.0;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+/*- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset = self.detailsScrollView.contentOffset.y;
     CATransform3D headerTransform = CATransform3DIdentity;
     //NSLog(@"offset... %f", offset);
@@ -163,7 +163,7 @@ const CGFloat distance_W_LabelHeader = 35.0;
         
         
     }
-}
+}*/
 
 // Meta Data label and value attributes setup.
 // Setup nice typography settings.

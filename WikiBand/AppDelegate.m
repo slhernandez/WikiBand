@@ -22,10 +22,23 @@
     // Let's see if we can get a list of artist from the media library
     MPMediaQuery *fullList = [[MPMediaQuery alloc] init];
     NSArray *mediaList = [fullList items];
+    UIImage *albumArtwork = NULL;
+    NSMutableArray *albumImages = [[NSMutableArray alloc] init];
     for (MPMediaItem *song in mediaList) {
         //NSString *songTitle = [song valueForProperty:MPMediaItemPropertyTitle];
         NSString *songArtist = [song valueForProperty:MPMediaItemPropertyArtist];
+        MPMediaItemArtwork *artWork = [song valueForProperty:MPMediaItemPropertyArtwork];
         NSLog(@"songArtist %@", songArtist);
+        //NSLog(@"artWork %@", artWork);
+        albumArtwork = [artWork imageWithSize:CGSizeMake(250.0, 250.0)];
+        //NSLog(@"albumArtwork %@", albumArtwork);
+        if (albumArtwork != nil) {
+            [albumImages addObject:albumArtwork];
+        }
+    }
+    for (int i = 0; i < [albumImages count]; i++) {
+        UIImage *item = [albumImages objectAtIndex:i];
+        NSLog(@"%@", item);
     }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
