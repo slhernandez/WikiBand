@@ -10,6 +10,7 @@
 #import "GridViewController.h"
 #import "ArtistDetailsViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "MediaItems.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) NSDictionary *titleAttributes;
@@ -19,24 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Let's see if we can get a list of artist from the media library
-    MPMediaQuery *fullList = [[MPMediaQuery alloc] init];
-    NSArray *mediaList = [fullList items];
-    UIImage *albumArtwork = NULL;
-    NSMutableArray *mediaItems = [[NSMutableArray alloc] init];
-    for (MPMediaItem *song in mediaList) {
-        NSString *songArtist = [song valueForProperty:MPMediaItemPropertyArtist];
-        MPMediaItemArtwork *artWork = [song valueForProperty:MPMediaItemPropertyArtwork];
-        albumArtwork = [artWork imageWithSize:CGSizeMake(250.0, 250.0)];
-        NSDictionary *mItem = @{};
-        if (albumArtwork != nil & songArtist != nil) {
-            mItem = @{@"artist": songArtist, @"albumArt": albumArtwork};
-        }
         
-        [mediaItems addObject:mItem];
-    }
-    
-    NSLog(@"mediaItem %@", mediaItems);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

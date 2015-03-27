@@ -14,6 +14,8 @@
 #import "DismissDetailTransition.h"
 #import "ExperimentViewController.h"
 #import "Artist.h"
+#import "MediaItems.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface GridViewController () <UIViewControllerTransitioningDelegate>
 
@@ -80,6 +82,11 @@
     //NSLog(@"artistImage ... %@", currentArtist.artistImage);
     //NSLog(@"artistName ... %@", currentArtist.artistName);
     //NSLog(@"artistBio ... %@", currentArtist.artistBio);
+    
+    NSMutableArray *library = [self retrieveMediaItems];
+    if (library.count >0) {
+        NSLog(@"GridViewController: mediaItems library %@", library);
+    }
     
     cell.imageView.image = currentArtist.artistImage;
     //cell.label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 18.0f];
@@ -156,7 +163,30 @@
     return _cellTitleAttributes;
 }
 
+- (NSMutableArray *)retrieveMediaItems {
+    // Let's see if we can get a list of artist from the media library
+    MPMediaQuery *fullList = [[MPMediaQuery alloc] init];
+    NSArray *mediaList = [fullList items];
+    UIImage *albumArtwork = NULL;
+    NSMutableArray *mediaItems = [[NSMutableArray alloc] init];
+    for (MPMediaItem *song in mediaList) {
+        NSString *songArtist = [song valueForProperty:MPMediaItemPropertyArtist];
+        MPMediaItemArtwork *artWork = [song valueForProperty:MPMediaItemPropertyArtwork];
+        albumArtwork = [artWork imageWithSize:CGSizeMake(250.0, 250.0)];
+        NSDictionary *mItem = @{};
+        if (albumArtwork != nil & songArtist != nil) {
+            mItem = @{@"artist": songArtist, @"albumArt": albumArtwork};
+        }
+        
+        [mediaItems addObject:mItem];
+    }
+    
+    //NSLog(@"mediaItem %@", mediaItems);
+    MediaItems *items = [[MediaItems alloc] init];
+    items.library = @[mediaItems];
+    return mediaItems;
 
+}
 
 
 @end
