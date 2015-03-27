@@ -13,7 +13,7 @@
 @property (nonatomic, copy) NSString *mediaName;
 @property (nonatomic, strong) UIImage *mediaAlbumArt;
 
-//+ (NSArray *)mediaItems;
+@property (nonatomic, strong) NSArray *mediaItems;
 
 - (instancetype)initWithMediaItem:(NSString *)mediaName
                          image:(UIImage *)mediaImage;

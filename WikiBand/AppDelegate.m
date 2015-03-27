@@ -23,23 +23,20 @@
     MPMediaQuery *fullList = [[MPMediaQuery alloc] init];
     NSArray *mediaList = [fullList items];
     UIImage *albumArtwork = NULL;
-    NSMutableArray *albumImages = [[NSMutableArray alloc] init];
+    NSMutableArray *mediaItems = [[NSMutableArray alloc] init];
     for (MPMediaItem *song in mediaList) {
-        //NSString *songTitle = [song valueForProperty:MPMediaItemPropertyTitle];
         NSString *songArtist = [song valueForProperty:MPMediaItemPropertyArtist];
         MPMediaItemArtwork *artWork = [song valueForProperty:MPMediaItemPropertyArtwork];
-        NSLog(@"songArtist %@", songArtist);
-        //NSLog(@"artWork %@", artWork);
         albumArtwork = [artWork imageWithSize:CGSizeMake(250.0, 250.0)];
-        //NSLog(@"albumArtwork %@", albumArtwork);
-        if (albumArtwork != nil) {
-            [albumImages addObject:albumArtwork];
+        NSDictionary *mItem = @{};
+        if (albumArtwork != nil & songArtist != nil) {
+            mItem = @{@"artist": songArtist, @"albumArt": albumArtwork};
         }
+        
+        [mediaItems addObject:mItem];
     }
-    for (int i = 0; i < [albumImages count]; i++) {
-        UIImage *item = [albumImages objectAtIndex:i];
-        NSLog(@"%@", item);
-    }
+    
+    NSLog(@"mediaItem %@", mediaItems);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

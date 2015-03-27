@@ -10,6 +10,15 @@
 
 @implementation MediaItems
 
+- (instancetype)init {
+    self = [super init];
+    if(self) {
+        // set up the dictionary
+        //NSDictionary *mediaItem = @{@"someKey": @"someValue"};
+    }
+    return self;
+}
+
 - (instancetype)initWithMediaItem:(NSString *)mediaName
                          image:(UIImage *)mediaAlbumArt
 {
