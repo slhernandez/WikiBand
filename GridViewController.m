@@ -83,10 +83,10 @@
     //NSLog(@"artistName ... %@", currentArtist.artistName);
     //NSLog(@"artistBio ... %@", currentArtist.artistBio);
     
-    NSMutableArray *library = [self retrieveMediaItems];
+    /*NSMutableArray *library = [self retrieveMediaItems];
     if (library.count >0) {
         NSLog(@"GridViewController: mediaItems library %@", library);
-    }
+    }*/
     
     cell.imageView.image = currentArtist.artistImage;
     //cell.label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 18.0f];
@@ -163,17 +163,35 @@
     return _cellTitleAttributes;
 }
 
-- (NSMutableArray *)retrieveMediaItems {
+/*- (NSMutableArray *)retrieveMediaItems {
     // Let's see if we can get a list of artist from the media library
-    MPMediaQuery *fullList = [[MPMediaQuery alloc] init];
-    NSArray *mediaList = [fullList items];
-    UIImage *albumArtwork = NULL;
-    NSMutableArray *mediaItems = [[NSMutableArray alloc] init];
+    //MPMediaQuery *fullList = [[MPMediaQuery alloc] init];
+    //NSArray *mediaList = [fullList items];
+    //UIImage *albumArtwork = NULL;
+    //NSMutableArray *mediaItems = [[NSMutableArray alloc] init];
+    
+    UIImage *albumArtwork = [[UIImage alloc] init];
+    NSMutableDictionary *artists = [[NSMutableDictionary alloc] init];
+    MPMediaQuery *query = [MPMediaQuery artistsQuery];
+    NSArray *items = [query items];
+    
+    for (MPMediaItem *item in items) {
+        NSString *artistName = [item valueForProperty:MPMediaItemPropertyArtist];
+        NSString *artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
+        albumArtwork = [artwork imageWithSize:CGSizeMake(250.0, 250.0)];
+        if (artistName != nil & artwork != nil) {
+            [artists setObject:<#(id)#> forKey:<#(id<NSCopying>)#>]
+        }
+        
+    }
+    
+    
     for (MPMediaItem *song in mediaList) {
+        NSString *type = [song valueForProperty:MPMedia]
         NSString *songArtist = [song valueForProperty:MPMediaItemPropertyArtist];
         MPMediaItemArtwork *artWork = [song valueForProperty:MPMediaItemPropertyArtwork];
         albumArtwork = [artWork imageWithSize:CGSizeMake(250.0, 250.0)];
-        NSDictionary *mItem = @{};
+        
         if (albumArtwork != nil & songArtist != nil) {
             mItem = @{@"artist": songArtist, @"albumArt": albumArtwork};
         }
@@ -186,7 +204,7 @@
     items.library = @[mediaItems];
     return mediaItems;
 
-}
+}*/
 
 
 @end
